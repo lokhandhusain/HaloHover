@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Halo Hover</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix scroll position for fixed navbar */
+#consultation {
+  scroll-margin-top: 150px;
+}
+</style>
+
+
+</head>
+
+<body class="bg-[#10141B] text-[#DADDE3]">
+
+<!-- ================= NAVBAR ================= -->
+<header class="fixed w-full bg-[#10141B] border-b border-[#303646] z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- LOGO -->
+    <div class="bg-[#F3F4F6] px-4 py-2 rounded-lg">
+      <img src="./assets/logo/logo.png" class="h-28 object-contain">
+    </div>
+
+    <!-- NAV LINKS -->
+  <nav class="hidden md:flex gap-8 text-white font-medium">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="halo-hub.html">Halo Hub</a>
+  <a href="contact.html">About Us</a>
+
+  </nav>
+
+    <!-- CTA -->
+    <a href="contact.html"
+       class="bg-[#E63946] text-white px-6 py-3 rounded hover:bg-[#C92A3A] transition">
+      Get a Quote
+    </a>
+
+  </div>
+</header>
+<!-- ================= ABOUT HERO ================= -->
+<section class="pt-48 pb-24 max-w-7xl mx-auto px-6">
+
+  <h1 class="text-5xl font-semibold text-white mb-6">
+    About Halo Hover
+  </h1>
+
+  <p class="text-[#9CA3AF] max-w-3xl text-lg leading-relaxed">
+    Halo Hover is a premium aerial intelligence company delivering
+    precision-driven drone solutions for construction, infrastructure,
+    and high-value developments. 
+
+    We combine cinematic-quality capture with structured data workflows,
+    empowering decision-makers with clarity, speed, and confidence.
+  </p>
+
+</section>
+<!-- ================= COMPANY STORY ================= -->
+<section class="py-20 bg-[#181D27]">
+
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <h2 class="text-3xl font-semibold text-white mb-6">
+        Our Vision
+      </h2>
+
+      <p class="text-[#9CA3AF] leading-relaxed mb-6">
+        Our mission is to redefine aerial intelligence by merging
+        advanced drone technology with enterprise-ready data systems.
+        Every project we deliver is built on precision, compliance,
+        and structured reporting.
+      </p>
+
+      <p class="text-[#9CA3AF] leading-relaxed">
+        Through our proprietary Halo Hub platform, clients gain secure,
+        cloud-based access to their project visuals and analytics —
+        accessible from anywhere in the world.
+      </p>
+    </div>
+
+    <div>
+      <img src="./assets/images/about.jpg"
+           class="rounded-2xl shadow-2xl border border-[#303646]">
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= WHY CHOOSE US ================= -->
+<section id="consultation" class="py-24">
+
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-3xl font-semibold text-white mb-16 text-center">
+      Why Choose Halo Hover
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-12">
+
+      <div class="bg-[#1F2430] border border-[#303646] p-10 rounded-2xl">
+        <h3 class="text-xl font-semibold text-white mb-4">
+          Regulatory Compliance
+        </h3>
+        <p class="text-[#9CA3AF]">
+          Fully licensed, insured, and compliant with aviation
+          and construction safety regulations.
+        </p>
+      </div>
+
+      <div class="bg-[#1F2430] border border-[#303646] p-10 rounded-2xl">
+        <h3 class="text-xl font-semibold text-white mb-4">
+          Enterprise Delivery
+        </h3>
+        <p class="text-[#9CA3AF]">
+          Structured outputs including orthomosaics,
+          360° panoramas, and analytics-ready datasets.
+        </p>
+      </div>
+
+      <div class="bg-[#1F2430] border border-[#303646] p-10 rounded-2xl">
+        <h3 class="text-xl font-semibold text-white mb-4">
+          Proprietary Platform
+        </h3>
+        <p class="text-[#9CA3AF]">
+          Secure, cloud-based Halo Hub system for visualization,
+          collaboration and long-term data access.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT SECTION ================= -->
+<section id="consultation" class="pt-48 pb-28 max-w-3xl mx-auto px-6">
+
+  <h1 class="text-4xl font-semibold text-white mb-10">
+    Contact Us
+  </h1>
+
+  <form class="space-y-6">
+
+    <div>
+      <label class="block text-sm mb-2 text-[#9CA3AF]">Full Name</label>
+      <input type="text"
+        class="w-full p-4 rounded bg-[#1F2430] border border-[#303646]
+               focus:outline-none focus:border-[#E63946] transition">
+    </div>
+
+    <div>
+      <label class="block text-sm mb-2 text-[#9CA3AF]">Email Address</label>
+      <input type="email"
+        class="w-full p-4 rounded bg-[#1F2430] border border-[#303646]
+               focus:outline-none focus:border-[#E63946] transition">
+    </div>
+
+    <div>
+      <label class="block text-sm mb-2 text-[#9CA3AF]">Project Details</label>
+      <textarea rows="5"
+        class="w-full p-4 rounded bg-[#1F2430] border border-[#303646]
+               focus:outline-none focus:border-[#E63946] transition">
+      </textarea>
+    </div>
+
+    <button
+      class="bg-[#E63946] text-white px-8 py-3 rounded
+             hover:bg-[#C92A3A] transition">
+      Send Message
+    </button>
+
+  </form>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="border-t border-[#303646] py-10 text-center text-[#9CA3AF]">
+  © 2026 Halo Hover. All rights reserved.
+</footer>
+
+</body>
+</html>

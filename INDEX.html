@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.client-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #9CA3AF;
+  transition: all 0.3s ease;
+}
+
+.client-name:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+</style>
+<style>
+
+/* Cinematic Background Gradient */
+body {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(230,57,70,0.12), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(230,57,70,0.08), transparent 40%),
+    #0B0F18;
+}
+
+/* Floating Red Glow Orb */
+.glow-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(230,57,70,0.4), transparent 60%);
+  filter: blur(120px);
+  animation: float 12s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes float {
+  from { transform: translateY(-40px); }
+  to { transform: translateY(40px); }
+}
+
+/* Hero Text Fade Up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cinematic Image Slow Zoom */
+.hero-img {
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+/* Card Glow Effect */
+.card-hover:hover {
+  box-shadow: 0 0 40px rgba(230,57,70,0.4);
+  transform: translateY(-10px);
+}
+
+/* Fade edges for marquee */
+.marquee-wrapper {
+  mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+}
+
+</style>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halo Hover</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="relative overflow-x-hidden bg-[#0B0F18] text-[#DADDE3]">
+<div class="glow-orb top-0 left-0"></div>
+
+
+<!-- NAVBAR -->
+<header class="fixed w-full bg-[#10141B] border-b border-[#303646] z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <div class="flex items-center gap-4">
+
+  <div class="bg-white px-6 py-3 rounded-2xl shadow-lg">
+    <img src="./assets/logo/logo.png"
+         class="h-20 object-contain">
+  </div>
+
+  <span class="text-white font-semibold text-lg tracking-wide">
+    
+  </span>
+
+</div>
+
+
+
+    <nav class="hidden md:flex gap-8 text-white font-medium">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="halo-hub.html">Halo Hub</a>
+  <a href="contact.html">About Us</a>
+  </nav>
+
+
+    <a href="contact.html#consultation"
+   class="bg-[#E63946] text-white px-6 py-3 rounded hover:bg-[#C92A3A] transition">
+   Get a Quote
+</a>
+
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-48 pb-32 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+  <div class="fade-up">
+
+    <h1 class="text-6xl font-semibold text-white leading-tight">
+      Precision in Flight
+    </h1>
+
+    <p class="mt-6 max-w-xl text-[#9CA3AF] text-lg">
+      Professional aerial intelligence for construction,
+      infrastructure, and high-value real estate environments.
+    </p>
+
+    <div class="mt-8 flex gap-6">
+      <a href="contact.html#consultation"
+         class="bg-gradient-to-r from-[#E63946] to-[#C92A3A]
+                px-8 py-4 rounded-xl text-white text-lg shadow-2xl
+                hover:scale-105 transition">
+        Request Consultation
+      </a>
+    </div>
+
+  </div>
+
+  <div class="overflow-hidden rounded-2xl shadow-2xl">
+    <img src="./assets/images/Hero.png"
+         class="hero-img w-full h-[500px] object-cover">
+  </div>
+
+</section>
+
+
+<!-- WHAT WE DO -->
+<section class="py-28 bg-[#181D27]">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <h2 class="text-3xl font-semibold text-white mb-14">
+      What We Do
+    </h2>
+
+    <div class="flex gap-8 transition-all duration-500">
+
+      <!-- CARD 1 -->
+      <div class="group flex-1 bg-[#1F2430] border border-[#303646] 
+            rounded-2xl p-10 cursor-pointer
+            card-hover transition duration-500">
+
+
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          Progress Monitoring
+        </h3>
+
+        <p class="text-[#9CA3AF] group-hover:text-white transition duration-300">
+          Accurate aerial documentation to track construction
+          progress and site evolution over time.
+        </p>
+
+      </div>
+
+
+      <!-- CARD 2 -->
+      <div class="group flex-1 bg-[#1F2430] border border-[#303646] 
+            rounded-2xl p-10 cursor-pointer
+            card-hover transition duration-500">
+
+
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          Mapping & Inspection
+        </h3>
+
+        <p class="text-[#9CA3AF] group-hover:text-white transition duration-300">
+          High-precision mapping and inspection services
+          for critical infrastructure.
+        </p>
+
+      </div>
+
+
+      <!-- CARD 3 -->
+      <div class="group flex-1 bg-[#1F2430] border border-[#303646] 
+            rounded-2xl p-10 cursor-pointer
+            card-hover transition duration-500">
+
+
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          Cinematic Marketing
+        </h3>
+
+        <p class="text-[#9CA3AF] group-hover:text-white transition duration-300">
+          Visually striking aerial content designed
+          for premium marketing campaigns.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLIENTS SECTION ================= -->
+<section class="py-24 bg-[#10141B] border-t border-[#303646] overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-6 text-center mb-14">
+    <h2 class="text-3xl font-semibold text-white">
+      Trusted By Industry Leaders
+    </h2>
+    <p class="text-[#9CA3AF] mt-3">
+      Serving construction, infrastructure and real estate sectors.
+    </p>
+  </div>
+
+  <!-- SCROLL CONTAINER -->
+  <div class="relative w-full overflow-hidden marquee-wrapper">
+
+
+    <div class="flex gap-20 animate-marquee whitespace-nowrap">
+
+      <!-- 15 CLIENT NAMES -->
+      <span class="client-name">SkyBuild Group</span>
+      <span class="client-name">UrbanCore Ltd</span>
+      <span class="client-name">MetroStruct</span>
+      <span class="client-name">Titan Infrastructure</span>
+      <span class="client-name">Apex Developments</span>
+      <span class="client-name">BlueStone Projects</span>
+      <span class="client-name">CivicWorks</span>
+      <span class="client-name">InfraNova</span>
+      <span class="client-name">Skyline Holdings</span>
+      <span class="client-name">BuildSphere</span>
+      <span class="client-name">PrimeConstruct</span>
+      <span class="client-name">Global Foundations</span>
+      <span class="client-name">NorthGrid</span>
+      <span class="client-name">Vertex Engineering</span>
+      <span class="client-name">Elevate Structures</span>
+
+      <!-- Duplicate for seamless loop -->
+      <span class="client-name">SkyBuild Group</span>
+      <span class="client-name">UrbanCore Ltd</span>
+      <span class="client-name">MetroStruct</span>
+      <span class="client-name">Titan Infrastructure</span>
+      <span class="client-name">Apex Developments</span>
+      <span class="client-name">BlueStone Projects</span>
+      <span class="client-name">CivicWorks</span>
+      <span class="client-name">InfraNova</span>
+      <span class="client-name">Skyline Holdings</span>
+      <span class="client-name">BuildSphere</span>
+      <span class="client-name">PrimeConstruct</span>
+      <span class="client-name">Global Foundations</span>
+      <span class="client-name">NorthGrid</span>
+      <span class="client-name">Vertex Engineering</span>
+      <span class="client-name">Elevate Structures</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<footer class="border-t border-[#303646] py-10 text-center text-[#9CA3AF]">
+© 2026 Halo Hover. All rights reserved.
+</footer>
+
+</body>
+</html>

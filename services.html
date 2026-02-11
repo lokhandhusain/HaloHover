@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Services</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+
+/* Cinematic Background */
+body {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(230,57,70,0.15), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(230,57,70,0.08), transparent 40%),
+    #0B0F18;
+}
+
+/* Floating Glow */
+.glow-orb {
+  position:absolute;
+  width:600px;
+  height:600px;
+  background: radial-gradient(circle, rgba(230,57,70,0.4), transparent 60%);
+  filter: blur(120px);
+  animation: float 14s ease-in-out infinite alternate;
+  z-index:-1;
+}
+
+@keyframes float {
+  from { transform: translateY(-50px); }
+  to { transform: translateY(50px); }
+}
+
+/* Image cinematic zoom */
+.service-img {
+  transition: transform 1s ease;
+}
+
+.service-img:hover {
+  transform: scale(1.05);
+}
+
+/* Section glow divider */
+.section-divider {
+  height:1px;
+  background: linear-gradient(to right, transparent, rgba(230,57,70,0.6), transparent);
+  margin: 80px 0;
+}
+
+</style>
+
+
+</head>
+
+<body class="relative overflow-x-hidden text-[#DADDE3]">
+
+<div class="glow-orb top-0 left-0"></div>
+
+
+
+<header class="fixed w-full  bg-[#0B0F18]/80 backdrop-blur
+border-b border-[#303646] z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <div class="bg-[#F3F4F6] px-4 py-2 rounded-lg">
+      <img src="./assets/logo/logo.png" class="h-28">
+    </div>
+
+    <nav class="hidden md:flex gap-8 text-white font-medium">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="halo-hub.html">Halo Hub</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+
+  </div>
+</header>
+
+<section class="pt-48 pb-28 bg-[#0B0F18]/80 backdrop-blur">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h1 class="text-5xl font-semibold text-white mb-6 tracking-tight">
+
+      Our Workflow
+    </h1>
+    <p class="text-[#9CA3AF] max-w-xl mb-16">
+  A structured approach to delivering precision aerial intelligence.
+</p>
+
+
+    <!-- STEP 1 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
+
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          Consultation
+        </h3>
+        <p class="text-[#9CA3AF]">
+          Understanding project scope, timelines and operational objectives.
+          We align aerial strategy with site requirements.
+        </p>
+      </div>
+
+      <div data-aos="fade-left">
+        <img src="./assets/images/consultation.png"
+             class="service-img rounded-2xl shadow-2xl border border-[#303646]"
+>
+      </div>
+
+    </div>
+    <div class="section-divider"></div>
+
+
+
+    <!-- STEP 2 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
+
+      <div data-aos="fade-right" class="md:order-2">
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          Planning & Permits
+        </h3>
+        <p class="text-[#9CA3AF]">
+          Regulatory approvals, risk assessments and
+          coordinated flight planning for compliance.
+        </p>
+      </div>
+
+      <div data-aos="fade-left" class="md:order-1">
+        <img src="./assets/images/planning.png"
+             class="service-img rounded-2xl shadow-2xl border border-[#303646]"
+>
+      </div>
+
+    </div>
+    <div class="section-divider"></div>
+
+
+
+    <!-- STEP 3 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
+
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          Execution
+        </h3>
+        <p class="text-[#9CA3AF]">
+          Precision aerial capture using advanced drone platforms
+          and real-time site coordination.
+        </p>
+      </div>
+
+      <div data-aos="fade-left">
+        <img src="./assets/images/execution.png"
+             class="service-img rounded-2xl shadow-2xl border border-[#303646]">
+      </div>
+
+    </div>
+    <div class="section-divider"></div>
+
+
+
+    <!-- STEP 4 -->
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div data-aos="fade-right" class="md:order-2">
+        <h3 class="text-2xl font-semibold text-white mb-4">
+          Delivery
+        </h3>
+        <p class="text-[#9CA3AF]">
+          Clean, structured visual outputs including orthomosaics,
+          panoramas and analytics-ready data.
+        </p>
+      </div>
+
+      <div data-aos="fade-left" class="md:order-1">
+        <img src="./assets/images/delivery.png"
+             class="service-img rounded-2xl shadow-2xl border border-[#303646]">
+      </div>
+
+    </div>
+    <div class="section-divider"></div>
+
+
+  </div>
+
+</section>
+
+
+
+<footer class="border-t border-[#303646] py-10 text-center text-[#9CA3AF]">
+© 2026 Halo Hover
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    easing: 'ease-out-cubic'
+  });
+</script>
+
+
+</body>
+</html>
