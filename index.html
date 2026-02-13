@@ -1,37 +1,147 @@
+<!-- update -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
+<style>
+
+nav a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #E63946;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #E63946;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .animate-marquee {
-  animation: marquee 25s linear infinite;
+  animation: marquee 35s linear infinite;
 }
+.group::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(230,57,70,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.group:hover::after {
+  opacity: 1;
+}
+
+/* WHY SECTION CARD STYLE */
+.why-card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid #E5E7EB;
+  border-radius: 24px;
+  padding: 50px;
+  text-align: left;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* VERY IMPORTANT */
+}
+
+.why-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(17,24,39,0.12);
+}
+
+/* Soft red glow on hover */
+.why-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(230,57,70,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1; /* THIS FIXES INVISIBLE TEXT */
+}
+
+.why-card:hover::after {
+  opacity: 1;
+}
+
+
+/* Icon Style */
+.why-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #E63946, #C92A3A);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(230,57,70,0.25);
+}
+
+/* Text */
+.why-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.why-text {
+  color: #6B7280;
+  line-height: 1.7;
+}
+
 
 .client-name {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #9CA3AF;
-  transition: all 0.3s ease;
+  color: #6B7280;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid #E5E7EB;
+  transition: all 0.4s ease;
 }
 
 .client-name:hover {
-  color: #ffffff;
-  transform: scale(1.1);
+  color: #111827;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
+
 </style>
 <style>
 
 /* Cinematic Background Gradient */
 body {
   background:
-    radial-gradient(circle at 20% 30%, rgba(230,57,70,0.12), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(230,57,70,0.08), transparent 40%),
-    #0B0F18;
+    radial-gradient(circle at 20% 20%, rgba(230,57,70,0.06), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(230,57,70,0.04), transparent 40%),
+    #F5F7FA;
 }
+
 
 /* Floating Red Glow Orb */
 .glow-orb {
@@ -84,6 +194,8 @@ body {
   mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
 }
 
+
+
 </style>
 
 
@@ -94,12 +206,14 @@ body {
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body class="relative overflow-x-hidden bg-[#0B0F18] text-[#DADDE3]">
+<body class="relative overflow-x-hidden bg-[#F5F7FA] text-[#1A1F2B]">
+
 <div class="glow-orb top-0 left-0"></div>
 
 
 <!-- NAVBAR -->
-<header class="fixed w-full bg-[#10141B] border-b border-[#303646] z-50">
+<header class="fixed w-full bg-white/95 backdrop-blur-lg shadow-[0_10px_40px_rgba(0,0,0,0.05)] border-b border-[#E5E7EB] z-50">
+
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
     <div class="flex items-center gap-4">
@@ -117,7 +231,7 @@ body {
 
 
 
-    <nav class="hidden md:flex gap-8 text-white font-medium">
+    <nav class="hidden md:flex gap-8 text-[#111827] font-medium">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
   <a href="halo-hub.html">Halo Hub</a>
@@ -139,11 +253,11 @@ body {
 
   <div class="fade-up">
 
-    <h1 class="text-6xl font-semibold text-white leading-tight">
+    <h1 class="text-6xl font-semibold text-[#111827] leading-tight">
       Precision in Flight
     </h1>
 
-    <p class="mt-6 max-w-xl text-[#9CA3AF] text-lg">
+    <p class="mt-6 max-w-xl text-[#6B7280] text-lg">
       Professional aerial intelligence for construction,
       infrastructure, and high-value real estate environments.
     </p>
@@ -168,44 +282,65 @@ body {
 
 
 <!-- WHAT WE DO -->
-<section class="py-28 bg-[#181D27]">
+<section class="relative py-32 bg-gradient-to-b from-[#F9FAFB] to-[#EEF2F7] overflow-hidden">
+<div class="absolute -top-20 -left-20 w-96 h-96 bg-red-100 rounded-full blur-3xl opacity-40"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-rose-200 rounded-full blur-3xl opacity-30"></div>
+
+
   <div class="max-w-7xl mx-auto px-6">
     
-    <h2 class="text-3xl font-semibold text-white mb-14">
+    <h2 class="text-3xl font-semibold text-[#111827] mb-14">
+
       What We Do
     </h2>
 
     <div class="flex gap-8 transition-all duration-500">
 
       <!-- CARD 1 -->
-      <div class="group flex-1 bg-[#1F2430] border border-[#303646] 
-            rounded-2xl p-10 cursor-pointer
-            card-hover transition duration-500">
+      <div class="group flex-1 relative overflow-hidden
+      bg-white/80 backdrop-blur-xl
+      border border-white/60
+      shadow-xl rounded-3xl p-10 cursor-pointer
+      transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
 
 
-        <h3 class="text-2xl font-semibold text-white mb-4">
-          Progress Monitoring
-        </h3>
 
-        <p class="text-[#9CA3AF] group-hover:text-white transition duration-300">
-          Accurate aerial documentation to track construction
-          progress and site evolution over time.
-        </p>
+      <div class="absolute top-0 left-0 h-1 w-0 
+  bg-gradient-to-r from-[#E63946] to-[#C92A3A] 
+  transition-all duration-500 group-hover:w-full">
+  </div>
 
-      </div>
+  <h3 class="text-2xl font-semibold text-[#111827] mb-4">
+    Progress Monitoring
+  </h3>
+
+  <p class="text-[#6B7280] group-hover:text-[#111827] transition duration-300">
+    Accurate aerial documentation to track construction
+    progress and site evolution over time.
+  </p>
+
+</div>
 
 
       <!-- CARD 2 -->
-      <div class="group flex-1 bg-[#1F2430] border border-[#303646] 
-            rounded-2xl p-10 cursor-pointer
-            card-hover transition duration-500">
+      <div class="group flex-1 relative overflow-hidden
+        bg-white/80 backdrop-blur-xl
+        order border-white/60
+        shadow-xl rounded-3xl p-10 cursor-pointer
+        transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+      <div class="absolute top-0 left-0 h-1 w-0 
+      bg-gradient-to-r from-[#E63946] to-[#C92A3A] 
+      transition-all duration-500 group-hover:w-full">
+      </div>
 
 
-        <h3 class="text-2xl font-semibold text-white mb-4">
+        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
+
           Mapping & Inspection
         </h3>
 
-        <p class="text-[#9CA3AF] group-hover:text-white transition duration-300">
+        <p class="text-[#6B7280] group-hover:text-[#111827] transition duration-300">
+
           High-precision mapping and inspection services
           for critical infrastructure.
         </p>
@@ -214,16 +349,23 @@ body {
 
 
       <!-- CARD 3 -->
-      <div class="group flex-1 bg-[#1F2430] border border-[#303646] 
-            rounded-2xl p-10 cursor-pointer
-            card-hover transition duration-500">
+      <div class="group flex-1 relative overflow-hidden
+      bg-white/80 backdrop-blur-xl
+      border border-white/60
+      shadow-xl rounded-3xl p-10 cursor-pointer
+      transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
 
+      <div class="absolute top-0 left-0 h-1 w-0 
+      bg-gradient-to-r from-[#E63946] to-[#C92A3A] 
+      transition-all duration-500 group-hover:w-full">
+      </div>
 
-        <h3 class="text-2xl font-semibold text-white mb-4">
+        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
           Cinematic Marketing
         </h3>
 
-        <p class="text-[#9CA3AF] group-hover:text-white transition duration-300">
+        <p class="text-[#6B7280] group-hover:text-[#111827] transition duration-300">
+
           Visually striking aerial content designed
           for premium marketing campaigns.
         </p>
@@ -235,19 +377,23 @@ body {
 </section>
 
 <!-- ================= CLIENTS SECTION ================= -->
-<section class="py-24 bg-[#10141B] border-t border-[#303646] overflow-hidden">
+<section class="py-28 bg-[#F9FAFB] border-t border-[#E5E7EB] overflow-hidden relative">
+
 
   <div class="max-w-7xl mx-auto px-6 text-center mb-14">
-    <h2 class="text-3xl font-semibold text-white">
+    <h2 class="text-3xl font-semibold text-[#111827]">
+
       Trusted By Industry Leaders
     </h2>
-    <p class="text-[#9CA3AF] mt-3">
+    <p class="text-[#6B7280] mt-3">
+
       Serving construction, infrastructure and real estate sectors.
     </p>
   </div>
 
   <!-- SCROLL CONTAINER -->
-  <div class="relative w-full overflow-hidden marquee-wrapper">
+  <div class="relative w-full overflow-hidden">
+
 
 
     <div class="flex gap-20 animate-marquee whitespace-nowrap">
@@ -291,12 +437,72 @@ body {
   </div>
 
 </section>
+<!-- WHY CHOOSE HALO HOVER -->
+<section class="relative py-32 bg-gradient-to-b from-[#F9FAFB] to-[#EEF2F7] overflow-hidden">
+
+  <!-- Soft Background Glow -->
+  <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-red-100 rounded-full blur-3xl opacity-40"></div>
+  <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-rose-200 rounded-full blur-3xl opacity-30"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <div class="text-center mb-20" data-aos="fade-up">
+      <h2 class="text-5xl font-semibold text-[#111827] mb-6">
+        Why Choose Halo Hover
+      </h2>
+      <p class="text-[#6B7280] text-lg max-w-2xl mx-auto">
+        Professional. Compliant. Structured. Designed for enterprise-level delivery.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- CARD 1 -->
+      <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-icon">✓</div>
+        <h3 class="why-title">Regulatory Compliance</h3>
+        <p class="why-text">
+          Fully licensed, insured and compliant with aviation and construction safety regulations.
+        </p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-icon">📊</div>
+        <h3 class="why-title">Enterprise Delivery</h3>
+        <p class="why-text">
+          Structured outputs including orthomosaics, 360° panoramas and analytics-ready datasets.
+        </p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="why-icon">☁</div>
+        <h3 class="why-title">Proprietary Platform</h3>
+        <p class="why-text">
+          Secure, cloud-based Halo Hub system for visualization, collaboration and long-term data access.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 
 <footer class="border-t border-[#303646] py-10 text-center text-[#9CA3AF]">
 © 2026 Halo Hover. All rights reserved.
 </footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
 
 </body>
 </html>

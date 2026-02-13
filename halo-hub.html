@@ -8,6 +8,46 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+/* Background Slideshow */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.hero-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: slideShow 25s infinite;
+  transform: scale(1.1);
+}
+
+.hero-slideshow img:nth-child(1) { animation-delay: 0s; }
+.hero-slideshow img:nth-child(2) { animation-delay: 5s; }
+.hero-slideshow img:nth-child(3) { animation-delay: 10s; }
+.hero-slideshow img:nth-child(4) { animation-delay: 15s; }
+.hero-slideshow img:nth-child(5) { animation-delay: 20s; }
+
+@keyframes slideShow {
+  0% { opacity: 0; transform: scale(1.1); }
+  5% { opacity: 1; }
+  25% { opacity: 1; }
+  30% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Dark overlay for readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(11,15,24,0.8), rgba(11,15,24,0.4));
+  z-index: -1;
+}
+
 body {
   margin:0;
   background:
@@ -82,12 +122,22 @@ body {
 <!-- ================= HERO ================= -->
 <section class="min-h-screen flex items-center relative overflow-hidden px-10">
 
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center w-full">
+  <!-- SLIDESHOW BACKGROUND -->
+  <div class="hero-slideshow">
+    <img src="./assets/images/hub2.JPG">
+    <img src="./assets/images/hub3.JPG">
+    <img src="./assets/images/hub4.JPG">
+    <img src="./assets/images/hub1.JPG">
+  </div>
 
-    <!-- LEFT -->
+  <!-- Dark Overlay -->
+  <div class="hero-overlay"></div>
+
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center w-full relative z-10">
+
     <div>
 
-      <span class="bg-[#2A2F3A] text-[#E63946] text-xs px-4 py-2 rounded-full">
+      <span class="bg-[#2A2F3A]/80 text-[#E63946] text-xs px-4 py-2 rounded-full backdrop-blur">
         PROPRIETARY PLATFORM
       </span>
 
@@ -95,68 +145,23 @@ body {
         Halo Hub
       </h1>
 
-      <p class="mt-8 text-[#9CA3AF] text-lg max-w-lg">
+      <p class="mt-8 text-[#D1D5DB] text-lg max-w-lg">
         Secure, cloud-based access to your site data.
         View, measure, and annotate from anywhere in the world.
       </p>
 
       <div class="mt-12 flex gap-6">
-
-        <button onclick="openDemo()"
-          class="bg-gradient-to-r from-[#E63946] to-[#C92A3A]
-                 px-10 py-4 rounded-xl text-white text-lg shadow-2xl
-                 hover:scale-105 transition">
-          Launch Live Interactive Demo
-        </button>
-
         <button onclick="openExplore()"
           class="glass-btn px-10 py-4 rounded-xl text-white text-lg">
-          Click to Explore Hub
+          Explore Hub
         </button>
-
       </div>
-
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="relative">
-      <div class="rounded-2xl overflow-hidden shadow-2xl border border-[#2A2F3A]">
-        <img src="./assets/images/hub-1.png"
-             class="w-full object-cover">
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= LIVE DEMO SECTION ================= -->
-<section id="live-demo"
-  class="hidden opacity-0 transition-all duration-700 py-24 bg-[#0B0F18]">
-
-  <div class="max-w-6xl mx-auto px-6 text-center">
-
-    <h2 class="text-4xl text-white mb-12">
-      Live Interactive Demo
-    </h2>
-
-    <div class="rounded-2xl overflow-hidden shadow-2xl border border-[#2A2F3A]">
-
-      <iframe
-        src="https://example.com"
-        class="w-full h-[600px] bg-black"
-        frameborder="0">
-      </iframe>
 
     </div>
 
   </div>
 
 </section>
-
-
 
 <!-- ================= EXPLORE HUB GALLERY ================= -->
 <section id="explore-hub"
@@ -198,17 +203,7 @@ body {
 
 <!-- ================= SCRIPT ================= -->
 <script>
-
-function openDemo() {
-  hideAll();
-  const demo = document.getElementById('live-demo');
-  demo.classList.remove('hidden');
-  setTimeout(() => demo.classList.remove('opacity-0'), 50);
-  demo.scrollIntoView({ behavior: 'smooth' });
-}
-
 function openExplore() {
-  hideAll();
   const explore = document.getElementById('explore-hub');
   explore.classList.remove('hidden');
   setTimeout(() => explore.classList.remove('opacity-0'), 50);
@@ -216,7 +211,6 @@ function openExplore() {
 }
 
 function hideAll() {
-  document.getElementById('live-demo').classList.add('hidden','opacity-0');
   document.getElementById('explore-hub').classList.add('hidden','opacity-0');
 }
 

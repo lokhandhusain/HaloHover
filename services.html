@@ -7,13 +7,126 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
 
+/* Highlighted Service */
+.service-highlight {
+  background: linear-gradient(135deg, #fff, #fff5f6);
+  border: 1px solid rgba(230,57,70,0.3);
+  box-shadow: 0 20px 60px rgba(230,57,70,0.08);
+  transform: scale(1.02);
+}
+
+.service-highlight::before {
+  height: 100% !important;
+}
+
+.highlight-badge {
+  display: inline-block;
+  background: #E63946;
+  color: white;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Premium Service Card */
+.service-card {
+  position: relative;
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  padding: 50px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* Red Accent Line */
+.service-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0%;
+  width: 4px;
+  background: linear-gradient(to bottom, #E63946, #C92A3A);
+  transition: height 0.4s ease;
+}
+
+.service-card:hover::before {
+  height: 100%;
+}
+
+/* Soft Glow */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(230,57,70,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 60px rgba(17,24,39,0.12);
+}
+
+/* Bullet Styling */
+.service-list li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.service-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: #E63946;
+  border-radius: 50%;
+}
+
+
 /* Cinematic Background */
 body {
+  min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 20%, rgba(230,57,70,0.15), transparent 40%),
-    radial-gradient(circle at 85% 70%, rgba(230,57,70,0.08), transparent 40%),
-    #0B0F18;
+    radial-gradient(circle at 20% 30%, rgba(230,57,70,0.18), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(230,57,70,0.12), transparent 40%),
+    linear-gradient(135deg, #f9fafb 0%, #eef2f7 100%);
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(230,57,70,0.15), transparent 70%);
+  filter: blur(100px);
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(230,57,70,0.08), transparent 70%);
+  filter: blur(120px);
+  z-index: -1;
+}
+
 
 /* Floating Glow */
 .glow-orb {
@@ -46,31 +159,128 @@ body {
   background: linear-gradient(to right, transparent, rgba(230,57,70,0.6), transparent);
   margin: 80px 0;
 }
+/* ================= PREMIUM MOTION ================= */
+
+/* Floating subtle background gradient */
+.premium-bg {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(230,57,70,0.12), transparent 60%);
+  filter: blur(120px);
+  animation: floatPremium 18s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes floatPremium {
+  from { transform: translate(-50px, -40px); }
+  to { transform: translate(40px, 60px); }
+}
+
+/* Service number animation */
+.service-number {
+  font-size: 60px;
+  font-weight: 800;
+  color: rgba(230,57,70,0.08);
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-number {
+  transform: scale(1.1);
+  color: rgba(230,57,70,0.15);
+}
+
+/* Shine hover effect */
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+.service-card:hover::after {
+  top: 100%;
+  left: 100%;
+}
+
+/* Highlight pulse effect */
+.service-highlight {
+  animation: pulseGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 20px 60px rgba(230,57,70,0.12);
+  }
+  to {
+    box-shadow: 0 25px 80px rgba(230,57,70,0.25);
+  }
+}
+
+/* Parallax image hover */
+.parallax-img {
+  transition: transform 0.6s ease;
+}
+
+.parallax-wrapper:hover .parallax-img {
+  transform: scale(1.08) translateY(-8px);
+}
 
 </style>
 
 
 </head>
 
-<body class="relative overflow-x-hidden text-[#DADDE3]">
+<body class="relative overflow-x-hidden text-[#1A1F2B]">
 
-<div class="glow-orb top-0 left-0"></div>
+<div class="premium-bg top-40 right-0"></div>
 
 
 
-<header class="fixed w-full  bg-[#0B0F18]/80 backdrop-blur
-border-b border-[#303646] z-50">
+<header class="fixed top-0 w-full bg-white/95 backdrop-blur-xl shadow-md border-b border-[#E5E7EB] z-50 transition-all duration-300">
+
+
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
     <div class="bg-[#F3F4F6] px-4 py-2 rounded-lg">
       <img src="./assets/logo/logo.png" class="h-28">
     </div>
 
-    <nav class="hidden md:flex gap-8 text-white font-medium">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="halo-hub.html">Halo Hub</a>
-  <a href="contact.html">About Us</a>
+    <nav class="hidden md:flex gap-10 text-[#1F2937] font-semibold tracking-wide">
+
+  <a href="index.html" class="relative group">
+  Home
+  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
+</a>
+
+  <a href="services.html" class="relative group">
+  Services
+  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
+</a>
+
+  <a href="halo-hub.html" class="relative group">
+  Halo Hub
+  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
+</a>
+
+  <a href="contact.html" class="relative group">
+  About Us
+  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
+</a>
+
 
 </nav>
 
@@ -78,15 +288,17 @@ border-b border-[#303646] z-50">
   </div>
 </header>
 
-<section class="pt-48 pb-28 bg-[#0B0F18]/80 backdrop-blur">
+<section class="pt-48 pb-28">
+
 
   <div class="max-w-7xl mx-auto px-6">
 
-    <h1 class="text-5xl font-semibold text-white mb-6 tracking-tight">
+    <h1 class="text-5xl font-semibold text-[#111827] mb-6 tracking-tight">
+
 
       Our Workflow
     </h1>
-    <p class="text-[#9CA3AF] max-w-xl mb-16">
+    <p class="text-[#6B7280] max-w-xl mb-16">
   A structured approach to delivering precision aerial intelligence.
 </p>
 
@@ -95,10 +307,14 @@ border-b border-[#303646] z-50">
     <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
 
       <div data-aos="fade-right">
-        <h3 class="text-2xl font-semibold text-white mb-4">
+        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
+  01
+</div>
+
+        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
           Consultation
         </h3>
-        <p class="text-[#9CA3AF]">
+        <p class="text-[#6B7280]">
           Understanding project scope, timelines and operational objectives.
           We align aerial strategy with site requirements.
         </p>
@@ -106,7 +322,7 @@ border-b border-[#303646] z-50">
 
       <div data-aos="fade-left">
         <img src="./assets/images/consultation.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#303646]"
+             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]"
 >
       </div>
 
@@ -119,10 +335,14 @@ border-b border-[#303646] z-50">
     <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
 
       <div data-aos="fade-right" class="md:order-2">
-        <h3 class="text-2xl font-semibold text-white mb-4">
+        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
+  02
+</div>
+
+        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
           Planning & Permits
         </h3>
-        <p class="text-[#9CA3AF]">
+        <p class="text-[#6B7280]">
           Regulatory approvals, risk assessments and
           coordinated flight planning for compliance.
         </p>
@@ -130,7 +350,7 @@ border-b border-[#303646] z-50">
 
       <div data-aos="fade-left" class="md:order-1">
         <img src="./assets/images/planning.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#303646]"
+             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]"
 >
       </div>
 
@@ -143,10 +363,13 @@ border-b border-[#303646] z-50">
     <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
 
       <div data-aos="fade-right">
-        <h3 class="text-2xl font-semibold text-white mb-4">
+        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
+  03
+</div>
+        <h3 class="text-2xl font-semiboldtext-[#111827] mb-4">
           Execution
         </h3>
-        <p class="text-[#9CA3AF]">
+        <p class="text-[#6B7280]">
           Precision aerial capture using advanced drone platforms
           and real-time site coordination.
         </p>
@@ -154,7 +377,7 @@ border-b border-[#303646] z-50">
 
       <div data-aos="fade-left">
         <img src="./assets/images/execution.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#303646]">
+             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]">
       </div>
 
     </div>
@@ -166,10 +389,14 @@ border-b border-[#303646] z-50">
     <div class="grid md:grid-cols-2 gap-16 items-center">
 
       <div data-aos="fade-right" class="md:order-2">
-        <h3 class="text-2xl font-semibold text-white mb-4">
+        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
+  04
+</div>
+
+        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
           Delivery
         </h3>
-        <p class="text-[#9CA3AF]">
+        <p class="text-[#6B7280]">
           Clean, structured visual outputs including orthomosaics,
           panoramas and analytics-ready data.
         </p>
@@ -177,7 +404,7 @@ border-b border-[#303646] z-50">
 
       <div data-aos="fade-left" class="md:order-1">
         <img src="./assets/images/delivery.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#303646]">
+             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]">
       </div>
 
     </div>
@@ -186,11 +413,262 @@ border-b border-[#303646] z-50">
 
   </div>
 
+</section>   
+<!-- ================= PREMIUM SERVICES ================= -->
+<section class="pt-48 pb-16 bg-transparent
+">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-5xl font-semibold text-[#111827] mb-6">
+      Our Services
+    </h2>
+
+    <p class="text-[#6B7280] max-w-xl mb-">
+      Enterprise-level aerial intelligence, structured reporting
+      and spatial visualization solutions.
+    </p>
+
+      <!-- SERVICE 1 -->
+      <div class="service-card" data-aos="fade-up">
+        
+        <div class="service-number">01</div>
+        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
+          Construction Project Monitoring
+        </h3>
+
+        <p class="text-[#6B7280] mb-6">
+          Structured aerial documentation aligned with project milestones
+          to ensure visibility and executive-level reporting clarity.
+        </p>
+
+        <ul class="service-list space-y-3 text-[#374151]">
+          <li>Scheduled site visits</li>
+          <li>High-resolution aerial imagery</li>
+          <li>Comparative progress tracking</li>
+          <li>Stakeholder-ready visuals</li>
+          <li>Secure digital archiving</li>
+        </ul>
+      </div>
+
+      <!-- SERVICE 2 -->
+      <div class="service-card service-highlight" data-aos="zoom-in" data-aos-delay="100">
+        
+        <div class="service-number">02</div>
+        <div class="highlight-badge">
+  Core Differentiator
+</div>
+
+        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
+          Progress Reporting
+        </h3>
+
+        <p class="text-[#6B7280] mb-6">
+  Professional, presentation-ready reporting designed for
+  executive stakeholders, investors and project leadership teams.
+  We transform aerial data into structured documentation that
+  supports decision-making clarity.
+</p>
+
+<p class="text-[#E63946] font-medium mt-4">
+  This is where Halo Hover differentiates from others — 
+  not just flying drones, but delivering organized, executive-level reporting.
+</p>
+
+
+        <ul class="service-list space-y-3 text-[#374151]">
+          <li>Annotated aerial visuals</li>
+          <li>Before vs After comparisons</li>
+          <li>Executive summary reports</li>
+          <li>Timeline-based tracking</li>
+          <li>Cloud access</li>
+        </ul>
+      </div>
+
+      <!-- SERVICE 3 -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        
+  <div class="service-number">03</div>
+        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
+          360° Panoramic Tours
+        </h3>
+
+        <p class="text-[#6B7280] mb-6">
+          Immersive aerial panoramas for remote stakeholder engagement.
+        </p>
+
+        <ul class="service-list space-y-3 text-[#374151]">
+          <li>Interactive hosted panoramas</li>
+          <li>Zoom-enabled navigation</li>
+          <li>Date-based comparison</li>
+          <li>Secure shareable links</li>
+        </ul>
+      </div>
+
+      <!-- SERVICE 4 -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        
+        <div class="service-number">04</div>
+        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
+          3D Mapping & Modeling
+        </h3>
+
+        <p class="text-[#6B7280] mb-6">
+          Structured spatial data capture for visualization and site analysis.
+        </p>
+
+        <ul class="service-list space-y-3 text-[#374151]">
+          <li>2D orthomosaic maps</li>
+          <li>3D terrain visualization</li>
+          <li>Volume calculations</li>
+          <li>Planning-stage documentation</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- SERVICE 5 -->
+<!-- SERVICE BLOCK -->
+<section class="py-24 bg-transparent relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- IMAGE SIDE -->
+    <div data-aos="fade-right" class="relative group">
+      <img src="./assets/images/marketing.jpg"
+           class="rounded-3xl shadow-2xl transition duration-700 group-hover:scale-105">
+
+      <!-- Overlay Glow -->
+      <div class="absolute inset-0 rounded-3xl
+                  bg-gradient-to-tr from-[#E63946]/20 to-transparent
+                  opacity-0 group-hover:opacity-100
+                  transition duration-500">
+      </div>
+    </div>
+
+    <!-- CONTENT SIDE -->
+    <div data-aos="fade-left">
+
+      <div class="relative mb-6">
+  <div class="service-number">05</div>
+</div>
+
+
+      <h3 class="text-4xl font-semibold text-[#111827] mb-6">
+        Marketing & Promotional Aerial Media
+      </h3>
+
+      <p class="text-[#6B7280] mb-8 text-lg leading-relaxed">
+        Elevate property launches and brand presence with cinematic aerial visuals 
+        tailored for developers and enterprise clients.
+      </p>
+
+      <ul class="space-y-4 text-[#374151]">
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
+          Developer promotional videos
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
+          Project launch visuals
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
+          Social media optimized reels
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
+          Corporate marketing footage
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
+          Investor presentation visuals
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SERVICE 6 -->
+<section class="py-24 bg-[#F9FAFB]">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div data-aos="fade-right">
+      <div class="relative mb-6">
+  <div class="service-number">06</div>
+</div>
+
+
+      <h3 class="text-4xl font-semibold text-[#111827] mb-6">
+        Architectural Photography & Videography
+      </h3>
+
+      <p class="text-[#6B7280] mb-8 text-lg leading-relaxed">
+        Professional documentation of completed or ongoing architectural projects 
+        with precision and creative discipline.
+      </p>
+
+      <ul class="space-y-4 text-[#374151]">
+        <li>Architecture firms</li>
+        <li>Real estate developers</li>
+        <li>Portfolio documentation</li>
+        <li>Marketing publications</li>
+      </ul>
+    </div>
+
+    <div data-aos="fade-left" class="relative group">
+      <img src="./assets/images/architecture.jpg"
+           class="rounded-3xl shadow-2xl transition duration-700 group-hover:scale-105">
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICE 7 -->
+<section class="py-24 bg-transparent">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div data-aos="fade-right" class="relative group md:order-2">
+      <img src="./assets/images/events.jpg"
+           class="rounded-3xl shadow-2xl transition duration-700 group-hover:scale-105">
+    </div>
+
+    <div data-aos="fade-left" class="md:order-1">
+      <div class="relative mb-6">
+  <div class="service-number">07</div>
+</div>
+
+
+      <h3 class="text-4xl font-semibold text-[#111827] mb-6">
+        Events & Media Coverage
+      </h3>
+
+      <p class="text-[#6B7280] mb-8 text-lg leading-relaxed">
+        Professional aerial and ground coverage for corporate and construction-related events.
+      </p>
+
+      <ul class="space-y-4 text-[#374151]">
+        <li>Ground + aerial video coverage</li>
+        <li>Highlight reels</li>
+        <li>Social media short formats</li>
+        <li>Event documentation archives</li>
+        <li>Brand activation visuals</li>
+      </ul>
+    </div>
+
+  </div>
 </section>
 
 
 
-<footer class="border-t border-[#303646] py-10 text-center text-[#9CA3AF]">
+
+
+
+<footer class="border-t border-[#303646] py-10 text-center text-[#6B7280]">
 © 2026 Halo Hover
 </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
