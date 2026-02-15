@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Halo Hover</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #E63946;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #E63946;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE PAGE STYLE */
+.nav-active {
+  color: #E63946;
+}
+
+.nav-active::after {
+  width: 100%;
+}
+
+/* Premium Light Background (Same Feel as Home) */
+body {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(230,57,70,0.06), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(230,57,70,0.05), transparent 40%),
+    linear-gradient(135deg, #F9FAFB 0%, #EEF2F7 100%);
+}
+
+/* Floating Glow */
+.premium-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(230,57,70,0.15), transparent 60%);
+  filter: blur(120px);
+  animation: float 18s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes float {
+  from { transform: translate(-40px,-40px); }
+  to { transform: translate(40px,60px); }
+}
+
+/* Section Cards */
+.glass-section {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid #E5E7EB;
+  border-radius: 28px;
+  padding: 60px;
+  box-shadow: 0 20px 60px rgba(17,24,39,0.08);
+  transition: all 0.4s ease;
+}
+
+.glass-section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 70px rgba(17,24,39,0.12);
+}
+
+/* Premium Headings */
+.section-title {
+  font-size: 42px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+/* Bullet style */
+.custom-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 14px;
+}
+
+.custom-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: #E63946;
+  border-radius: 50%;
+}
+
+</style>
+</head>
+
+<body class="relative overflow-x-hidden text-[#1A1F2B]">
+
+<div class="premium-glow top-20 right-0"></div>
+
+<!-- NAVBAR (same style as home) -->
+<header class="fixed top-0 w-full bg-white/95 backdrop-blur-lg border-b border-[#E5E7EB] z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <div class="bg-white px-4 py-2 rounded-xl shadow-md">
+      <img src="./assets/logo/logo.png" class="h-14">
+    </div>
+
+    <nav class="hidden md:flex gap-10 text-[#1F2937] font-semibold tracking-wide">
+
+  <a href="index.html" class="nav-link">
+    Home
+  </a>
+
+  <a href="services.html" class="nav-link">
+    Our Services
+  </a>
+
+  <a href="about.html" class="nav-link">
+    About Us
+  </a>
+
+</nav>
+
+    <a href="contact.html"
+       class="bg-[#E63946] text-white px-6 py-3 rounded-lg shadow-md hover:bg-[#C92A3A] transition">
+      Get a Quote
+    </a>
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+<!-- HERO WITH VIDEO BACKGROUND -->
+<section class="relative min-h-screen flex items-center overflow-hidden">
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline
+         class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="./assets/images/about-bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- Soft Light Overlay for Readability -->
+  <div class="absolute inset-0 
+              bg-gradient-to-r 
+              from-white/85 
+              via-white/70 
+              to-white/60 
+              z-10">
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-20 max-w-7xl mx-auto px-6 py-40">
+
+    <h1 class="text-6xl font-semibold text-[#111827] mb-8"
+        data-aos="fade-up">
+      About Halo Hover
+    </h1>
+
+    <p class="text-lg text-[#374151] max-w-3xl leading-relaxed"
+       data-aos="fade-up"
+       data-aos-delay="150">
+
+      Professional UAV Operations aligned with UAE regulations.
+      Halo Hover Aerial Services LLC is a Dubai-based commercial drone services company operating
+      within the regulatory framework of the United Arab Emirates.
+
+    </p>
+
+  </div>
+
+</section>
+</section>
+
+
+<!-- SECTION 1 -->
+<!-- REGULATORY & PERMIT COORDINATION -->
+<section class="relative py-40 overflow-hidden">
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline
+         class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="./assets/images/about-bg2.mp4" type="video/mp4">
+  </video>
+
+  <!-- Light Overlay -->
+  <div class="absolute inset-0 
+              bg-gradient-to-r 
+              from-white/95 
+              via-white/85 
+              to-white/75 
+              z-10">
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-20 max-w-6xl mx-auto px-6">
+
+    <h2 class="text-5xl font-semibold text-[#111827] mb-8"
+        data-aos="fade-up">
+      Regulatory & Permit Coordination
+    </h2>
+
+    <p class="text-lg text-[#374151] leading-relaxed mb-10"
+       data-aos="fade-up"
+       data-aos-delay="100">
+      Operating drones within the UAE requires adherence to strict aviation protocols.
+      In a highly regulated airspace environment, professional drone deployment requires
+      structured coordination, permit handling and compliance discipline.
+    </p>
+
+    <ul class="space-y-4 text-[#374151] text-lg"
+        data-aos="fade-up"
+        data-aos-delay="200">
+      <li>✔ Pre-flight regulatory review</li>
+      <li>✔ Coordination with relevant authorities</li>
+      <li>✔ Compliance with flight restrictions</li>
+      <li>✔ Risk assessment and site evaluation</li>
+      <li>✔ Operational documentation management</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+
+<!-- SECTION 2 -->
+<!-- RESPONSIBLE OPERATIONS -->
+<section class="relative py-40 overflow-hidden">
+
+  <video autoplay muted loop playsinline
+         class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="./assets/images/about-bg3.mp4" type="video/mp4">
+  </video>
+
+  <div class="absolute inset-0 
+              bg-gradient-to-r 
+              from-white/95 
+              via-white/85 
+              to-white/75 
+              z-10">
+  </div>
+
+  <div class="relative z-20 max-w-6xl mx-auto px-6">
+
+    <h2 class="text-5xl font-semibold text-[#111827] mb-8"
+        data-aos="fade-up">
+      Responsible Operations
+    </h2>
+
+    <p class="text-lg text-[#374151] leading-relaxed mb-10"
+       data-aos="fade-up"
+       data-aos-delay="100">
+      Drone deployment in urban, industrial and event environments demands structured oversight.
+      Halo Hover maintains disciplined operational standards across every assignment.
+    </p>
+
+    <ul class="space-y-4 text-[#374151] text-lg"
+        data-aos="fade-up"
+        data-aos-delay="200">
+      <li>✔ Site-specific planning</li>
+      <li>✔ Airspace awareness</li>
+      <li>✔ Safety perimeter evaluation</li>
+      <li>✔ Controlled flight execution</li>
+      <li>✔ Post-operation documentation</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+<!-- SECTION 4 -->
+<!-- STRUCTURED WORKFLOW -->
+<section class="relative py-40 overflow-hidden">
+
+  <video autoplay muted loop playsinline
+         class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="./assets/images/about-bg4.mp4" type="video/mp4">
+  </video>
+
+  <div class="absolute inset-0 
+              bg-gradient-to-r 
+              from-white/95 
+              via-white/85 
+              to-white/75 
+              z-10">
+  </div>
+
+  <div class="relative z-20 max-w-6xl mx-auto px-6">
+
+    <h2 class="text-5xl font-semibold text-[#111827] mb-8"
+        data-aos="fade-up">
+      Structured Workflow
+    </h2>
+
+    <p class="text-lg text-[#374151] leading-relaxed mb-10"
+       data-aos="fade-up"
+       data-aos-delay="100">
+      Professional UAV operations require clarity and structured process.
+      Our workflow ensures consistency, compliance and delivery discipline.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 text-[#374151] text-lg"
+         data-aos="fade-up"
+         data-aos-delay="200">
+
+      <div>• Project Scope Review</div>
+      <div>• Regulatory Assessment & Permit Planning</div>
+      <div>• Operational Coordination</div>
+      <div>• Controlled Data Acquisition</div>
+      <div>• Organized Processing & Secure Delivery</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer class="border-t border-[#E5E7EB] py-10 text-center text-[#6B7280]">
+© 2026 Halo Hover
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    once: true
+  });
+</script>
+
+</body>
+</html>

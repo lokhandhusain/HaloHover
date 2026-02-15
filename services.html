@@ -7,6 +7,50 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
 
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #E63946;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #E63946;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE PAGE STYLE */
+.nav-active {
+  color: #E63946;
+}
+
+.nav-active::after {
+  width: 100%;
+}
+
+.service-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.service-slide.active {
+  opacity: 1;
+}
+
 /* Highlighted Service */
 .service-highlight {
   background: linear-gradient(135deg, #fff, #fff5f6);
@@ -250,170 +294,51 @@ body::after {
 
 
 
-<header class="fixed top-0 w-full bg-white/95 backdrop-blur-xl shadow-md border-b border-[#E5E7EB] z-50 transition-all duration-300">
+<!-- NAVBAR (Same as Home) -->
+<header id="navbar"
+class="fixed w-full top-0 left-0 z-50
+bg-white/90 backdrop-blur-lg
+border-b border-[#E5E7EB]
+transition-all duration-300">
 
+  <div class="max-w-7xl mx-auto px-6 py-4
+              flex justify-between items-center">
 
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-    <div class="bg-[#F3F4F6] px-4 py-2 rounded-lg">
-      <img src="./assets/logo/logo.png" class="h-28">
+    <!-- Logo -->
+    <div class="bg-white px-4 py-2 rounded-xl shadow-md">
+      <img src="./assets/logo/logo.png"
+           class="h-14">
     </div>
 
+    <!-- Nav -->
     <nav class="hidden md:flex gap-10 text-[#1F2937] font-semibold tracking-wide">
 
-  <a href="index.html" class="relative group">
-  Home
-  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
-</a>
+  <a href="index.html" class="nav-link">
+    Home
+  </a>
 
-  <a href="services.html" class="relative group">
-  Services
-  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
-</a>
+  <a href="services.html" class="nav-link">
+    Our Services
+  </a>
 
-  <a href="halo-hub.html" class="relative group">
-  Halo Hub
-  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
-</a>
-
-  <a href="contact.html" class="relative group">
-  About Us
-  <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#E63946] transition-all duration-300 group-hover:w-full"></span>
-</a>
-
+  <a href="about.html" class="nav-link">
+    About Us
+  </a>
 
 </nav>
 
 
+    <!-- Button -->
+    <a href="contact.html"
+       class="bg-[#E63946] text-white px-5 py-2.5
+              rounded-lg shadow-md
+              hover:bg-[#C92A3A] transition text-sm">
+      Get a Quote
+    </a>
+
   </div>
 </header>
 
-<section class="pt-48 pb-28">
-
-
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h1 class="text-5xl font-semibold text-[#111827] mb-6 tracking-tight">
-
-
-      Our Workflow
-    </h1>
-    <p class="text-[#6B7280] max-w-xl mb-16">
-  A structured approach to delivering precision aerial intelligence.
-</p>
-
-
-    <!-- STEP 1 -->
-    <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
-
-      <div data-aos="fade-right">
-        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
-  01
-</div>
-
-        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
-          Consultation
-        </h3>
-        <p class="text-[#6B7280]">
-          Understanding project scope, timelines and operational objectives.
-          We align aerial strategy with site requirements.
-        </p>
-      </div>
-
-      <div data-aos="fade-left">
-        <img src="./assets/images/consultation.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]"
->
-      </div>
-
-    </div>
-    <div class="section-divider"></div>
-
-
-
-    <!-- STEP 2 -->
-    <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
-
-      <div data-aos="fade-right" class="md:order-2">
-        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
-  02
-</div>
-
-        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
-          Planning & Permits
-        </h3>
-        <p class="text-[#6B7280]">
-          Regulatory approvals, risk assessments and
-          coordinated flight planning for compliance.
-        </p>
-      </div>
-
-      <div data-aos="fade-left" class="md:order-1">
-        <img src="./assets/images/planning.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]"
->
-      </div>
-
-    </div>
-    <div class="section-divider"></div>
-
-
-
-    <!-- STEP 3 -->
-    <div class="grid md:grid-cols-2 gap-16 items-center mb-28">
-
-      <div data-aos="fade-right">
-        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
-  03
-</div>
-        <h3 class="text-2xl font-semiboldtext-[#111827] mb-4">
-          Execution
-        </h3>
-        <p class="text-[#6B7280]">
-          Precision aerial capture using advanced drone platforms
-          and real-time site coordination.
-        </p>
-      </div>
-
-      <div data-aos="fade-left">
-        <img src="./assets/images/execution.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]">
-      </div>
-
-    </div>
-    <div class="section-divider"></div>
-
-
-
-    <!-- STEP 4 -->
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <div data-aos="fade-right" class="md:order-2">
-        <div class="text-sm font-semibold text-[#E63946] mb-4 tracking-widest">
-  04
-</div>
-
-        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
-          Delivery
-        </h3>
-        <p class="text-[#6B7280]">
-          Clean, structured visual outputs including orthomosaics,
-          panoramas and analytics-ready data.
-        </p>
-      </div>
-
-      <div data-aos="fade-left" class="md:order-1">
-        <img src="./assets/images/delivery.png"
-             class="service-img rounded-2xl shadow-2xl border border-[#E5E7EB]">
-      </div>
-
-    </div>
-    <div class="section-divider"></div>
-
-
-  </div>
-
-</section>   
 <!-- ================= PREMIUM SERVICES ================= -->
 <section class="pt-48 pb-16 bg-transparent
 ">
@@ -430,189 +355,234 @@ body::after {
     </p>
 
       <!-- SERVICE 1 -->
-      <div class="service-card" data-aos="fade-up">
-        
-        <div class="service-number">01</div>
-        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
-          Construction Project Monitoring
-        </h3>
+<section class="py-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-        <p class="text-[#6B7280] mb-6">
-          Structured aerial documentation aligned with project milestones
-          to ensure visibility and executive-level reporting clarity.
-        </p>
-
-        <ul class="service-list space-y-3 text-[#374151]">
-          <li>Scheduled site visits</li>
-          <li>High-resolution aerial imagery</li>
-          <li>Comparative progress tracking</li>
-          <li>Stakeholder-ready visuals</li>
-          <li>Secure digital archiving</li>
-        </ul>
-      </div>
-
-      <!-- SERVICE 2 -->
-      <div class="service-card service-highlight" data-aos="zoom-in" data-aos-delay="100">
-        
-        <div class="service-number">02</div>
-        <div class="highlight-badge">
-  Core Differentiator
-</div>
-
-        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
-          Progress Reporting
-        </h3>
-
-        <p class="text-[#6B7280] mb-6">
-  Professional, presentation-ready reporting designed for
-  executive stakeholders, investors and project leadership teams.
-  We transform aerial data into structured documentation that
-  supports decision-making clarity.
-</p>
-
-<p class="text-[#E63946] font-medium mt-4">
-  This is where Halo Hover differentiates from others — 
-  not just flying drones, but delivering organized, executive-level reporting.
-</p>
-
-
-        <ul class="service-list space-y-3 text-[#374151]">
-          <li>Annotated aerial visuals</li>
-          <li>Before vs After comparisons</li>
-          <li>Executive summary reports</li>
-          <li>Timeline-based tracking</li>
-          <li>Cloud access</li>
-        </ul>
-      </div>
-
-      <!-- SERVICE 3 -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        
-  <div class="service-number">03</div>
-        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
-          360° Panoramic Tours
-        </h3>
-
-        <p class="text-[#6B7280] mb-6">
-          Immersive aerial panoramas for remote stakeholder engagement.
-        </p>
-
-        <ul class="service-list space-y-3 text-[#374151]">
-          <li>Interactive hosted panoramas</li>
-          <li>Zoom-enabled navigation</li>
-          <li>Date-based comparison</li>
-          <li>Secure shareable links</li>
-        </ul>
-      </div>
-
-      <!-- SERVICE 4 -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        
-        <div class="service-number">04</div>
-        <h3 class="text-2xl font-semibold text-[#111827] mb-6">
-          3D Mapping & Modeling
-        </h3>
-
-        <p class="text-[#6B7280] mb-6">
-          Structured spatial data capture for visualization and site analysis.
-        </p>
-
-        <ul class="service-list space-y-3 text-[#374151]">
-          <li>2D orthomosaic maps</li>
-          <li>3D terrain visualization</li>
-          <li>Volume calculations</li>
-          <li>Planning-stage documentation</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-  <!-- SERVICE 5 -->
-<!-- SERVICE BLOCK -->
-<section class="py-24 bg-transparent relative overflow-hidden">
-
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
-    <!-- IMAGE SIDE -->
-    <div data-aos="fade-right" class="relative group">
-      <img src="./assets/images/marketing.jpg"
-           class="rounded-3xl shadow-2xl transition duration-700 group-hover:scale-105">
-
-      <!-- Overlay Glow -->
-      <div class="absolute inset-0 rounded-3xl
-                  bg-gradient-to-tr from-[#E63946]/20 to-transparent
-                  opacity-0 group-hover:opacity-100
-                  transition duration-500">
-      </div>
-    </div>
-
-    <!-- CONTENT SIDE -->
-    <div data-aos="fade-left">
-
-      <div class="relative mb-6">
-  <div class="service-number">05</div>
-</div>
-
+    <div data-aos="fade-right">
+      <div class="service-number">01</div>
 
       <h3 class="text-4xl font-semibold text-[#111827] mb-6">
-        Marketing & Promotional Aerial Media
+        Construction Project Monitoring
       </h3>
 
-      <p class="text-[#6B7280] mb-8 text-lg leading-relaxed">
-        Elevate property launches and brand presence with cinematic aerial visuals 
-        tailored for developers and enterprise clients.
+      <p class="text-[#6B7280] leading-relaxed mb-6">
+        Structured aerial documentation designed for developers, consultants and contractors.
+        We provide consistent site capture aligned with project milestones to ensure visibility,
+        accountability and executive-level reporting clarity.
       </p>
 
-      <ul class="space-y-4 text-[#374151]">
-        <li class="flex items-start gap-3">
-          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
-          Developer promotional videos
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
-          Project launch visuals
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
-          Social media optimized reels
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
-          Corporate marketing footage
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="w-2 h-2 bg-[#E63946] rounded-full mt-2"></span>
-          Investor presentation visuals
-        </li>
+      <h4 class="font-semibold mb-4 text-[#111827]">Includes:</h4>
+
+      <ul class="space-y-3 text-[#374151]">
+        <li>Scheduled site visits (weekly / bi-weekly / monthly)</li>
+        <li>High-resolution aerial imagery</li>
+        <li>Comparative progress tracking</li>
+        <li>Stakeholder-ready visuals</li>
+        <li>Secure digital archiving</li>
       </ul>
 
+      <p class="mt-6 font-medium text-[#111827]">
+        Ideal for long-term construction oversight contracts.
+      </p>
+    </div>
+
+    <div data-aos="fade-left" class="relative group overflow-hidden rounded-3xl shadow-2xl">
+      <img src="./assets/images/servi1.jpg"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
     </div>
 
   </div>
 </section>
 
 
-<!-- SERVICE 6 -->
-<section class="py-24 bg-[#F9FAFB]">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <!-- SERVICE 2 -->
+<section class="py-28 bg-white/60 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+    <div data-aos="fade-right" class="md:order-2">
+      <div class="service-number">02</div>
+
+      <h3 class="text-4xl font-semibold text-[#111827] mb-6">
+        Progress Reporting
+      </h3>
+
+      <p class="text-[#6B7280] leading-relaxed mb-6">
+        Professional, presentation-ready reporting for project stakeholders.
+        We transform aerial data into structured documentation that supports internal reviews,
+        investor updates and client presentations.
+      </p>
+
+      <h4 class="font-semibold mb-4 text-[#111827]">Deliverables:</h4>
+
+      <ul class="space-y-3 text-[#374151]">
+        <li>Annotated aerial visuals</li>
+        <li>Before vs After comparisons</li>
+        <li>Executive summary reports (PDF)</li>
+        <li>Timeline-based tracking</li>
+      </ul>
+
+      <p class="mt-6 text-[#E63946] font-semibold text-lg">
+        This is where Halo Hover differentiates — not just flying drones but delivering organized reporting.
+      </p>
+    </div>
+
+    <div data-aos="fade-left" class="md:order-1 relative group overflow-hidden rounded-3xl shadow-2xl border border-[#E63946]/30">
+      <img src="./assets/images/servi2.jpg"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
+    </div>
+
+  </div>
+</section>
+
+
+      <!-- SERVICE 3 -->
+<section class="py-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
     <div data-aos="fade-right">
-      <div class="relative mb-6">
-  <div class="service-number">06</div>
-</div>
+      <div class="service-number">03</div>
 
+      <h3 class="text-4xl font-semibold text-[#111827] mb-6">
+        360° Panoramic Tours
+      </h3>
+
+      <p class="text-[#6B7280] leading-relaxed mb-6">
+        Immersive aerial panoramas that allow stakeholders to explore sites remotely.
+      </p>
+
+      <h4 class="font-semibold mb-4">Perfect for:</h4>
+
+      <ul class="space-y-3 text-[#374151] mb-6">
+        <li>Developers</li>
+        <li>Overseas investors</li>
+        <li>Remote project managers</li>
+        <li>Marketing teams</li>
+      </ul>
+
+      <h4 class="font-semibold mb-4">Features:</h4>
+
+      <ul class="space-y-3 text-[#374151]">
+        <li>Interactive hosted panoramas</li>
+        <li>Zoom-enabled site navigation</li>
+        <li>Date-based comparison views</li>
+        <li>Shareable secure links</li>
+      </ul>
+    </div>
+
+    <!-- SLIDESHOW -->
+    <div class="relative h-[480px] rounded-3xl overflow-hidden shadow-2xl">
+
+      <div class="service-slide active">
+        <img src="./assets/images/servi3.png" class="w-full h-full object-cover">
+      </div>
+
+      <div class="service-slide">
+        <img src="./assets/images/servi4.png" class="w-full h-full object-cover">
+      </div>
+
+      <div class="service-slide">
+        <img src="./assets/images/servi5.png" class="w-full h-full object-cover">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+      <!-- SERVICE 4 -->
+<section class="py-28 bg-white/50 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+    <div data-aos="fade-right">
+      <div class="service-number">04</div>
+
+      <h3 class="text-4xl font-semibold text-[#111827] mb-6">
+        3D Mapping & Modeling
+      </h3>
+
+      <p class="text-[#6B7280] leading-relaxed mb-6">
+        Structured aerial data capture for spatial visualization and site analysis.
+      </p>
+
+      <h4 class="font-semibold mb-4 text-[#111827]">Available for:</h4>
+
+      <ul class="space-y-3 text-[#374151]">
+        <li>2D orthomosaic maps</li>
+        <li>3D terrain visualization</li>
+        <li>Volume calculations</li>
+        <li>Site overview modeling</li>
+        <li>Planning-stage documentation</li>
+      </ul>
+
+      <p class="mt-6 text-[#6B7280]">
+        Advanced mapping projects are evaluated based on scope and project requirements.
+      </p>
+    </div>
+
+    <div data-aos="fade-left" class="relative group overflow-hidden rounded-3xl shadow-2xl">
+      <img src="./assets/images/servi6.jpg"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
+    </div>
+
+  </div>
+</section>
+
+  <!-- SERVICE 5 -->
+<section class="py-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+    <div data-aos="fade-right" class="md:order-2">
+      <div class="service-number">05</div>
+
+      <h3 class="text-4xl font-semibold text-[#111827] mb-6">
+        Marketing & Promotional Aerial Media
+      </h3>
+
+      <p class="text-[#6B7280] leading-relaxed mb-6">
+        Elevate property launches and brand presence with cinematic aerial visuals.
+      </p>
+
+      <h4 class="font-semibold mb-4">Includes:</h4>
+
+      <ul class="space-y-3 text-[#374151]">
+        <li>Developer promotional videos</li>
+        <li>Project launch visuals</li>
+        <li>Social media optimized reels</li>
+        <li>Corporate marketing footage</li>
+        <li>Investor presentation visuals</li>
+      </ul>
+    </div>
+
+    <div data-aos="fade-left" class="md:order-1 relative group overflow-hidden rounded-3xl shadow-2xl">
+      <img src="./assets/images/servi7.jpg"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- SERVICE 6 -->
+<section class="py-28 bg-white/50 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+    <div data-aos="fade-right">
+      <div class="service-number">06</div>
 
       <h3 class="text-4xl font-semibold text-[#111827] mb-6">
         Architectural Photography & Videography
       </h3>
 
-      <p class="text-[#6B7280] mb-8 text-lg leading-relaxed">
-        Professional documentation of completed or ongoing architectural projects 
-        with precision and creative discipline.
+      <p class="text-[#6B7280] leading-relaxed mb-6">
+        Professional visual documentation of completed or ongoing architectural projects.
+        We capture structural design, facade details, spatial aesthetics and project completion
+        highlights with precision and creative discipline.
       </p>
 
-      <ul class="space-y-4 text-[#374151]">
+      <h4 class="font-semibold mb-4">Suitable for:</h4>
+
+      <ul class="space-y-3 text-[#374151]">
         <li>Architecture firms</li>
         <li>Real estate developers</li>
         <li>Portfolio documentation</li>
@@ -620,38 +590,30 @@ body::after {
       </ul>
     </div>
 
-    <div data-aos="fade-left" class="relative group">
-      <img src="./assets/images/architecture.jpg"
-           class="rounded-3xl shadow-2xl transition duration-700 group-hover:scale-105">
+    <div data-aos="fade-left" class="relative group overflow-hidden rounded-3xl shadow-2xl">
+      <img src="./assets/images/servi8.jpg"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
     </div>
 
   </div>
 </section>
 
 <!-- SERVICE 7 -->
-<section class="py-24 bg-transparent">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<section class="py-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-    <div data-aos="fade-right" class="relative group md:order-2">
-      <img src="./assets/images/events.jpg"
-           class="rounded-3xl shadow-2xl transition duration-700 group-hover:scale-105">
-    </div>
-
-    <div data-aos="fade-left" class="md:order-1">
-      <div class="relative mb-6">
-  <div class="service-number">07</div>
-</div>
-
+    <div data-aos="fade-right" class="md:order-2">
+      <div class="service-number">07</div>
 
       <h3 class="text-4xl font-semibold text-[#111827] mb-6">
         Events & Media Coverage
       </h3>
 
-      <p class="text-[#6B7280] mb-8 text-lg leading-relaxed">
+      <p class="text-[#6B7280] leading-relaxed mb-6">
         Professional aerial and ground coverage for corporate and construction-related events.
       </p>
 
-      <ul class="space-y-4 text-[#374151]">
+      <ul class="space-y-3 text-[#374151]">
         <li>Ground + aerial video coverage</li>
         <li>Highlight reels</li>
         <li>Social media short formats</li>
@@ -660,13 +622,13 @@ body::after {
       </ul>
     </div>
 
+    <div data-aos="fade-left" class="md:order-1 relative group overflow-hidden rounded-3xl shadow-2xl">
+      <img src="./assets/images/servi9.JPG"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
+    </div>
+
   </div>
 </section>
-
-
-
-
-
 
 <footer class="border-t border-[#303646] py-10 text-center text-[#6B7280]">
 © 2026 Halo Hover
@@ -679,6 +641,21 @@ body::after {
     easing: 'ease-out-cubic'
   });
 </script>
+
+<!-- 360 SLIDESHOW SCRIPT -->
+<script>
+const serviceSlides = document.querySelectorAll('.service-slide');
+let currentServiceSlide = 0;
+
+setInterval(() => {
+  serviceSlides[currentServiceSlide].classList.remove('active');
+  currentServiceSlide = (currentServiceSlide + 1) % serviceSlides.length;
+  serviceSlides[currentServiceSlide].classList.add('active');
+}, 4000);
+</script>
+
+</body>
+</html>
 
 
 </body>

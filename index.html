@@ -3,7 +3,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
+  .nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #E63946;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #E63946;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE PAGE STYLE */
+.nav-active {
+  color: #E63946;
+}
+
+.nav-active::after {
+  width: 100%;
+}
+
+/* ===== HERO SLIDESHOW ===== */
+
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 8s ease;
+  transform: scale(1.05);
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Dark overlay for readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.3)
+  );
+  z-index: -1;
+}
 
 nav a {
   position: relative;
@@ -212,57 +283,81 @@ body {
 
 
 <!-- NAVBAR -->
-<header class="fixed w-full bg-white/95 backdrop-blur-lg shadow-[0_10px_40px_rgba(0,0,0,0.05)] border-b border-[#E5E7EB] z-50">
+<header id="navbar"
+class="fixed w-full top-0 left-0 z-50
+bg-white/90 backdrop-blur-lg
+border-b border-[#E5E7EB]
+transition-all duration-300">
 
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+  <div class="max-w-7xl mx-auto px-6 py-4
+              flex justify-between items-center
+              transition-all duration-300">
 
-    <div class="flex items-center gap-4">
+    <!-- Logo -->
+    <div class="bg-white px-4 py-2 rounded-xl shadow-md transition-all duration-300">
+      <img src="./assets/logo/logo.png"
+           class="h-14 transition-all duration-300">
+    </div>
 
-  <div class="bg-white px-6 py-3 rounded-2xl shadow-lg">
-    <img src="./assets/logo/logo.png"
-         class="h-20 object-contain">
-  </div>
+    <!-- Nav -->
+    <nav class="hidden md:flex gap-10 text-[#1F2937] font-semibold tracking-wide">
 
-  <span class="text-white font-semibold text-lg tracking-wide">
-    
-  </span>
+  <a href="index.html" class="nav-link">
+    Home
+  </a>
 
-</div>
+  <a href="services.html" class="nav-link">
+    Our Services
+  </a>
 
+  <a href="about.html" class="nav-link">
+    About Us
+  </a>
 
-
-    <nav class="hidden md:flex gap-8 text-[#111827] font-medium">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="halo-hub.html">Halo Hub</a>
-  <a href="contact.html">About Us</a>
-  </nav>
+</nav>
 
 
-    <a href="contact.html#consultation"
-   class="bg-[#E63946] text-white px-6 py-3 rounded hover:bg-[#C92A3A] transition">
-   Get a Quote
-</a>
-
+    <!-- Button -->
+    <a href="contact.html"
+       class="bg-[#E63946] text-white px-5 py-2.5
+              rounded-lg shadow-md
+              hover:bg-[#C92A3A] transition text-sm">
+      Get a Quote
+    </a>
 
   </div>
 </header>
 
+
 <!-- HERO -->
-<section class="pt-48 pb-32 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+<section class="relative min-h-screen flex items-center px-10 overflow-hidden">
 
-  <div class="fade-up">
+  <!-- Background Slideshow -->
+<div class="hero-slideshow">
+  <div class="hero-slide active" style="background-image: url('./assets/images/hub1.JPG');"></div>
+  <div class="hero-slide" style="background-image: url('./assets/images/hub2.JPG');"></div>
+  <div class="hero-slide" style="background-image: url('./assets/images/hub3.JPG');"></div>
+  <div class="hero-slide" style="background-image: url('./assets/images/hub4.JPG');"></div>
+  <div class="hero-slide" style="background-image: url('./assets/images/hub5.JPG');"></div>
+</div>
 
-    <h1 class="text-6xl font-semibold text-[#111827] leading-tight">
+<div class="relative z-10 max-w-7xl mx-auto w-full">
+  <div class="max-w-2xl">
+
+    <h1 class="text-6xl font-semibold text-white leading-tight">
       Precision in Flight
     </h1>
 
-    <p class="mt-6 max-w-xl text-[#6B7280] text-lg">
-      Professional aerial intelligence for construction,
-      infrastructure, and high-value real estate environments.
+    <p class="mt-6 text-gray-200 text-lg">
+      Halo Hover Aerial Services LLC delivers structured aerial documentation,
+    3D visualization and professional media coverage for construction,
+    real estate, corporate and event environments.
+
+    We combine aviation-grade discipline with creative execution
+    to deliver clarity from above.
     </p>
 
-    <div class="mt-8 flex gap-6">
+    <div class="mt-8">
       <a href="contact.html#consultation"
          class="bg-gradient-to-r from-[#E63946] to-[#C92A3A]
                 px-8 py-4 rounded-xl text-white text-lg shadow-2xl
@@ -272,29 +367,158 @@ body {
     </div>
 
   </div>
+</div>
+<!-- Dark Overlay -->
+<div class="absolute inset-0 bg-black/55 z-0"></div>
 
-  <div class="overflow-hidden rounded-2xl shadow-2xl">
-    <img src="./assets/images/Hero.png"
-         class="hero-img w-full h-[500px] object-cover">
-  </div>
 
 </section>
 
 
 <!-- WHAT WE DO -->
 <section class="relative py-32 bg-gradient-to-b from-[#F9FAFB] to-[#EEF2F7] overflow-hidden">
-<div class="absolute -top-20 -left-20 w-96 h-96 bg-red-100 rounded-full blur-3xl opacity-40"></div>
-<div class="absolute bottom-0 right-0 w-96 h-96 bg-rose-200 rounded-full blur-3xl opacity-30"></div>
 
+  <!-- Soft Background Glow -->
+  <div class="absolute -top-20 -left-20 w-96 h-96 bg-red-100 rounded-full blur-3xl opacity-40"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-rose-200 rounded-full blur-3xl opacity-30"></div>
 
-  <div class="max-w-7xl mx-auto px-6">
-    
-    <h2 class="text-3xl font-semibold text-[#111827] mb-14">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
 
-      What We Do
-    </h2>
+    <!-- Section Title -->
+    <div class="text-center mb-20" data-aos="fade-up">
+      <h2 class="text-4xl font-semibold text-[#111827]">
+        What We Do :-
+      </h2>
+    </div>
 
-    <div class="flex gap-8 transition-all duration-500">
+    <!-- BEFORE / AFTER VISUAL -->
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-24" data-aos="fade-up">
+
+      <div class="relative group overflow-hidden rounded-3xl shadow-2xl">
+        <img src="./assets/images/serv1.png"
+             class="w-full h-[450px] object-cover transition duration-700 group-hover:scale-105">
+      </div>
+
+      <div class="relative group overflow-hidden rounded-3xl shadow-2xl">
+        <img src="./assets/images/serv2.png"
+             class="w-full h-[450px] object-cover transition duration-700 group-hover:scale-105">
+      </div>
+
+    </div>
+
+    <!-- Subtitle -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h3 class="text-2xl font-semibold text-[#111827]">
+        Comprehensive Aerial & Visual Solutions
+      </h3>
+    </div>
+
+    <!-- Description -->
+    <div class="max-w-4xl mx-auto text-center mb-20" data-aos="fade-up">
+      <p class="text-lg text-[#6B7280] leading-relaxed">
+        We provide professional drone and visual services tailored to diverse project requirements.
+        Our structured approach ensures consistency, clarity and executive-level presentation across every engagement.
+      </p>
+    </div>
+
+    <!-- Capabilities Grid -->
+    <div class="grid md:grid-cols-3 gap-10 mb-24">
+
+      <div class="group bg-white/80 backdrop-blur-xl border border-white/60
+                  rounded-3xl p-8 shadow-xl transition duration-500
+                  hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="100">
+
+        <h4 class="font-semibold text-[#111827] mb-3">
+          Construction Project Monitoring
+        </h4>
+        <p class="text-sm text-[#6B7280]">
+          Structured aerial documentation aligned with project milestones.
+        </p>
+      </div>
+
+      <div class="group bg-white/80 backdrop-blur-xl border border-white/60
+                  rounded-3xl p-8 shadow-xl transition duration-500
+                  hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="150">
+
+        <h4 class="font-semibold text-[#111827] mb-3">
+          Structured Progress Reporting
+        </h4>
+        <p class="text-sm text-[#6B7280]">
+          Executive-ready visual documentation and stakeholder reporting.
+        </p>
+      </div>
+
+      <div class="group bg-white/80 backdrop-blur-xl border border-white/60
+                  rounded-3xl p-8 shadow-xl transition duration-500
+                  hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="200">
+
+        <h4 class="font-semibold text-[#111827] mb-3">
+          360° Panoramic Tours
+        </h4>
+        <p class="text-sm text-[#6B7280]">
+          Immersive, remotely accessible site visualization.
+        </p>
+      </div>
+
+      <div class="group bg-white/80 backdrop-blur-xl border border-white/60
+                  rounded-3xl p-8 shadow-xl transition duration-500
+                  hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="250">
+
+        <h4 class="font-semibold text-[#111827] mb-3">
+          3D Mapping & Site Visualization
+        </h4>
+        <p class="text-sm text-[#6B7280]">
+          Spatial modeling and terrain analysis for planning clarity.
+        </p>
+      </div>
+
+      <div class="group bg-white/80 backdrop-blur-xl border border-white/60
+                  rounded-3xl p-8 shadow-xl transition duration-500
+                  hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="300">
+
+        <h4 class="font-semibold text-[#111827] mb-3">
+          Marketing & Promotional Media
+        </h4>
+        <p class="text-sm text-[#6B7280]">
+          Cinematic aerial visuals designed for high-impact campaigns.
+        </p>
+      </div>
+
+      <div class="group bg-white/80 backdrop-blur-xl border border-white/60
+                  rounded-3xl p-8 shadow-xl transition duration-500
+                  hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="350">
+
+        <h4 class="font-semibold text-[#111827] mb-3">
+          Architectural & Corporate Coverage
+        </h4>
+        <p class="text-sm text-[#6B7280]">
+          Professional documentation for projects, events and media.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Final Statement -->
+    <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+      <p class="text-lg text-[#111827] font-medium leading-relaxed">
+        Whether the objective is documentation, reporting, promotion or immersive visualization —
+        we deliver structured, reliable results aligned with professional standards.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+    <div class="grid md:grid-cols-3 gap-10 transition-all duration-500">
+
 
       <!-- CARD 1 -->
       <div class="group flex-1 relative overflow-hidden
@@ -310,7 +534,8 @@ body {
   transition-all duration-500 group-hover:w-full">
   </div>
 
-  <h3 class="text-2xl font-semibold text-[#111827] mb-4">
+  <h3 class="text-2xl font-semibold text-[#111827] mb-4 tracking-tight">
+
     Progress Monitoring
   </h3>
 
@@ -501,6 +726,16 @@ body {
     duration: 800,
     once: true
   });
+</script>
+<script>
+const slides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+
+setInterval(() => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 5000);
 </script>
 
 
