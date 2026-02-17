@@ -6,6 +6,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* TEXT COLOR CONTROL */
+
+/* When navbar is transparent (on hero) */
+.nav-transparent #navLinks a {
+  color: white;
+}
+
+.nav-transparent #navLinks a::after {
+  background: white;
+}
+
+/* When navbar is solid (after scroll) */
+.nav-solid #navLinks a {
+  color: #1F2937;
+}
+
+.nav-solid #navLinks a::after {
+  background: #E63946;
+}
+
+  /* TRANSPARENT STATE (top of page) */
+.nav-transparent {
+  background: transparent;
+}
+
+/* SOLID STATE (after scroll) */
+.nav-solid {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E5E7EB;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+  /* Default transparent state */
+.nav-transparent {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
+}
+
+/* Scrolled state */
+.nav-solid {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E5E7EB;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Logo size transition */
+.logo-large img {
+  height: 64px;
+}
+
+.logo-small img {
+  height: 48px;
+}
+
   .nav-link {
   position: relative;
   transition: all 0.3s ease;
@@ -285,22 +343,25 @@ body {
 <!-- NAVBAR -->
 <header id="navbar"
 class="fixed w-full top-0 left-0 z-50
-bg-white/90 backdrop-blur-lg
-border-b border-[#E5E7EB]
-transition-all duration-300">
+transition-all duration-500 nav-transparent">
 
-  <div class="max-w-7xl mx-auto px-6 py-4
+  <div id="navbar-inner"
+       class="max-w-7xl mx-auto px-6 py-5
               flex justify-between items-center
-              transition-all duration-300">
+              transition-all duration-500">
+
 
     <!-- Logo -->
-    <div class="bg-white px-4 py-2 rounded-xl shadow-md transition-all duration-300">
-      <img src="./assets/logo/logo.png"
-           class="h-14 transition-all duration-300">
+    <div class="px-4 py-2 transition-all duration-300">
+
+      <img src="./assets/logo/logo.png" class="h-28">
+
     </div>
 
     <!-- Nav -->
-    <nav class="hidden md:flex gap-10 text-[#1F2937] font-semibold tracking-wide">
+    <nav id="navLinks" class="hidden md:flex gap-10 font-semibold tracking-wide transition-all duration-300">
+
+
 
   <a href="index.html" class="nav-link">
     Home
@@ -345,14 +406,15 @@ transition-all duration-300">
   <div class="max-w-2xl">
 
     <h1 class="text-6xl font-semibold text-white leading-tight">
-      Precision in Flight
+      Precision ,Elevated
     </h1>
 
     <p class="mt-6 text-gray-200 text-lg">
-      Halo Hover Aerial Services LLC delivers structured aerial documentation,
+      Halo Hover delivers structured aerial documentation,
     3D visualization and professional media coverage for construction,
     real estate, corporate and event environments.
-
+    </p>
+    <p class="mt-6 text-gray-200 text-lg">
     We combine aviation-grade discipline with creative execution
     to deliver clarity from above.
     </p>
@@ -516,88 +578,180 @@ transition-all duration-300">
 </section>
 
 </div>
+<!-- ================= INDUSTRIES WE SERVE ================= -->
+<section class="relative py-32 bg-white overflow-hidden">
 
-    <div class="grid md:grid-cols-3 gap-10 transition-all duration-500">
+  <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-red-100 rounded-full blur-3xl opacity-30"></div>
 
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
 
-      <!-- CARD 1 -->
-      <div class="group flex-1 relative overflow-hidden
-      bg-white/80 backdrop-blur-xl
-      border border-white/60
-      shadow-xl rounded-3xl p-10 cursor-pointer
-      transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
+    <!-- Title -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-5xl font-semibold text-[#111827] mb-6">
+        Industries We Serve
+      </h2>
+      <p class="text-[#6B7280] text-lg max-w-2xl mx-auto">
+        Supporting diverse sectors with structured aerial intelligence and professional execution.
+      </p>
+    </div>
 
+    <!-- 👇 IMAGE SPOT ADDED HERE -->
+    <div class="mb-20" data-aos="zoom-in">
+      <div class="relative group overflow-hidden rounded-3xl shadow-2xl">
+        <img src="./assets/images/industries.jpg"
+             class="w-full h-[500px] object-cover transition duration-700 group-hover:scale-105">
+        
+        <!-- Soft Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+      </div>
+    </div>
 
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-10">
 
-      <div class="absolute top-0 left-0 h-1 w-0 
-  bg-gradient-to-r from-[#E63946] to-[#C92A3A] 
-  transition-all duration-500 group-hover:w-full">
+      <div class="group bg-[#F9FAFB] border border-[#E5E7EB] rounded-3xl p-10 
+                  shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="100">
+
+        <h3 class="text-xl font-semibold text-[#111827] mb-4">
+          Developers & Contractors
+        </h3>
+        <p class="text-[#6B7280]">
+          Structured construction monitoring and milestone-based documentation.
+        </p>
+      </div>
+
+      <div class="group bg-[#F9FAFB] border border-[#E5E7EB] rounded-3xl p-10 
+                  shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="150">
+
+        <h3 class="text-xl font-semibold text-[#111827] mb-4">
+          Architecture & Engineering Firms
+        </h3>
+        <p class="text-[#6B7280]">
+          Precision mapping, modeling and visual documentation.
+        </p>
+      </div>
+
+      <div class="group bg-[#F9FAFB] border border-[#E5E7EB] rounded-3xl p-10 
+                  shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="200">
+
+        <h3 class="text-xl font-semibold text-[#111827] mb-4">
+          Real Estate & Property Marketing
+        </h3>
+        <p class="text-[#6B7280]">
+          Cinematic promotional visuals and immersive site tours.
+        </p>
+      </div>
+
+      <div class="group bg-[#F9FAFB] border border-[#E5E7EB] rounded-3xl p-10 
+                  shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="250">
+
+        <h3 class="text-xl font-semibold text-[#111827] mb-4">
+          Event & Media Companies
+        </h3>
+        <p class="text-[#6B7280]">
+          Professional aerial and ground coverage for corporate events.
+        </p>
+      </div>
+
+      <div class="group bg-[#F9FAFB] border border-[#E5E7EB] rounded-3xl p-10 
+                  shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="300">
+
+        <h3 class="text-xl font-semibold text-[#111827] mb-4">
+          Corporate Organizations
+        </h3>
+        <p class="text-[#6B7280]">
+          Structured reporting and executive-ready deliverables.
+        </p>
+      </div>
+
+      <div class="group bg-[#F9FAFB] border border-[#E5E7EB] rounded-3xl p-10 
+                  shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
+           data-aos="fade-up" data-aos-delay="350">
+
+        <h3 class="text-xl font-semibold text-[#111827] mb-4">
+          Industrial & Infrastructure Projects
+        </h3>
+        <p class="text-[#6B7280]">
+          Large-scale spatial documentation and operational oversight.
+        </p>
+      </div>
+
+    </div>
+
   </div>
+</section>
 
-  <h3 class="text-2xl font-semibold text-[#111827] mb-4 tracking-tight">
+<!-- ================= WHY CHOOSE HALO HOVER ================= -->
+<section class="relative py-32 bg-gradient-to-b from-[#F9FAFB] to-[#EEF2F7] overflow-hidden">
 
-    Progress Monitoring
-  </h3>
+  <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-red-100 rounded-full blur-3xl opacity-30"></div>
 
-  <p class="text-[#6B7280] group-hover:text-[#111827] transition duration-300">
-    Accurate aerial documentation to track construction
-    progress and site evolution over time.
-  </p>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
 
-</div>
+    <div class="text-center mb-20" data-aos="fade-up">
+      <h2 class="text-5xl font-semibold text-[#111827] mb-6">
+        Why Choose Halo Hover
+      </h2>
+      <p class="text-[#6B7280] text-lg max-w-2xl mx-auto">
+        Professional. Compliant. Reliable. Built for enterprise delivery.
+      </p>
+    </div>
 
+    <div class="grid md:grid-cols-2 gap-16 items-center">
 
-      <!-- CARD 2 -->
-      <div class="group flex-1 relative overflow-hidden
-        bg-white/80 backdrop-blur-xl
-        order border-white/60
-        shadow-xl rounded-3xl p-10 cursor-pointer
-        transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
-      <div class="absolute top-0 left-0 h-1 w-0 
-      bg-gradient-to-r from-[#E63946] to-[#C92A3A] 
-      transition-all duration-500 group-hover:w-full">
+      <!-- Image -->
+      <div data-aos="fade-right" class="relative group">
+        <img src="./assets/images/drone-sunset.jpg"
+             class="rounded-3xl shadow-2xl transition duration-700 group-hover:scale-105">
       </div>
 
+      <!-- Content -->
+      <div data-aos="fade-left" class="space-y-6">
 
-        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
+        <div class="flex items-start gap-4">
+          <div class="w-3 h-3 bg-[#E63946] rounded-full mt-2"></div>
+          <p class="text-lg text-[#374151]">
+            Licensed Commercial Operations aligned with UAE aviation standards.
+          </p>
+        </div>
 
-          Mapping & Inspection
-        </h3>
+        <div class="flex items-start gap-4">
+          <div class="w-3 h-3 bg-[#E63946] rounded-full mt-2"></div>
+          <p class="text-lg text-[#374151]">
+            Multi-Industry Experience across construction, corporate and media sectors.
+          </p>
+        </div>
 
-        <p class="text-[#6B7280] group-hover:text-[#111827] transition duration-300">
+        <div class="flex items-start gap-4">
+          <div class="w-3 h-3 bg-[#E63946] rounded-full mt-2"></div>
+          <p class="text-lg text-[#374151]">
+            Structured Project Delivery with executive-ready outputs.
+          </p>
+        </div>
 
-          High-precision mapping and inspection services
-          for critical infrastructure.
-        </p>
+        <div class="flex items-start gap-4">
+          <div class="w-3 h-3 bg-[#E63946] rounded-full mt-2"></div>
+          <p class="text-lg text-[#374151]">
+            Safety & Regulatory Alignment in controlled airspace environments.
+          </p>
+        </div>
 
-      </div>
-
-
-      <!-- CARD 3 -->
-      <div class="group flex-1 relative overflow-hidden
-      bg-white/80 backdrop-blur-xl
-      border border-white/60
-      shadow-xl rounded-3xl p-10 cursor-pointer
-      transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl">
-
-      <div class="absolute top-0 left-0 h-1 w-0 
-      bg-gradient-to-r from-[#E63946] to-[#C92A3A] 
-      transition-all duration-500 group-hover:w-full">
-      </div>
-
-        <h3 class="text-2xl font-semibold text-[#111827] mb-4">
-          Cinematic Marketing
-        </h3>
-
-        <p class="text-[#6B7280] group-hover:text-[#111827] transition duration-300">
-
-          Visually striking aerial content designed
-          for premium marketing campaigns.
-        </p>
+        <div class="flex items-start gap-4">
+          <div class="w-3 h-3 bg-[#E63946] rounded-full mt-2"></div>
+          <p class="text-lg text-[#374151]">
+            Clear Communication and timely, structured delivery.
+          </p>
+        </div>
 
       </div>
 
     </div>
+
   </div>
 </section>
 
@@ -662,57 +816,6 @@ transition-all duration-300">
   </div>
 
 </section>
-<!-- WHY CHOOSE HALO HOVER -->
-<section class="relative py-32 bg-gradient-to-b from-[#F9FAFB] to-[#EEF2F7] overflow-hidden">
-
-  <!-- Soft Background Glow -->
-  <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-red-100 rounded-full blur-3xl opacity-40"></div>
-  <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-rose-200 rounded-full blur-3xl opacity-30"></div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-
-    <div class="text-center mb-20" data-aos="fade-up">
-      <h2 class="text-5xl font-semibold text-[#111827] mb-6">
-        Why Choose Halo Hover
-      </h2>
-      <p class="text-[#6B7280] text-lg max-w-2xl mx-auto">
-        Professional. Compliant. Structured. Designed for enterprise-level delivery.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-10">
-
-      <!-- CARD 1 -->
-      <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="why-icon">✓</div>
-        <h3 class="why-title">Regulatory Compliance</h3>
-        <p class="why-text">
-          Fully licensed, insured and compliant with aviation and construction safety regulations.
-        </p>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="why-icon">📊</div>
-        <h3 class="why-title">Enterprise Delivery</h3>
-        <p class="why-text">
-          Structured outputs including orthomosaics, 360° panoramas and analytics-ready datasets.
-        </p>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="why-icon">☁</div>
-        <h3 class="why-title">Proprietary Platform</h3>
-        <p class="why-text">
-          Secure, cloud-based Halo Hub system for visualization, collaboration and long-term data access.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
 
 
@@ -737,7 +840,24 @@ setInterval(() => {
   slides[currentSlide].classList.add('active');
 }, 5000);
 </script>
+<script>
+const navbar = document.getElementById("navbar");
 
+function handleScroll() {
+  if (window.scrollY > 100) {
+    navbar.classList.remove("nav-transparent");
+    navbar.classList.add("nav-solid");
+  } else {
+    navbar.classList.add("nav-transparent");
+    navbar.classList.remove("nav-solid");
+  }
+}
+
+/* Default state */
+navbar.classList.add("nav-transparent");
+
+window.addEventListener("scroll", handleScroll);
+</script>
 
 </body>
 </html>

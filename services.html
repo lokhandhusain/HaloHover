@@ -6,6 +6,16 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
+.ai-slide {
+  filter: blur(2px) brightness(0.9);
+  transform: scale(1.05);
+  transition: all 1.2s ease;
+}
+
+.service-slide.active .ai-slide {
+  filter: blur(0px) brightness(1);
+  transform: scale(1.1);
+}
 
 .nav-link {
   position: relative;
@@ -306,8 +316,8 @@ transition-all duration-300">
 
     <!-- Logo -->
     <div class="bg-white px-4 py-2 rounded-xl shadow-md">
-      <img src="./assets/logo/logo.png"
-           class="h-14">
+      <img src="./assets/logo/logo.png" class="h-28">
+
     </div>
 
     <!-- Nav -->
@@ -421,7 +431,7 @@ transition-all duration-300">
         <li>Timeline-based tracking</li>
       </ul>
 
-      <p class="mt-6 text-[#E63946] font-semibold text-lg">
+      <p class="font-semibold mb-4 text-[#111827]">
         This is where Halo Hover differentiates — not just flying drones but delivering organized reporting.
       </p>
     </div>
@@ -493,7 +503,14 @@ transition-all duration-300">
 <section class="py-28 bg-white/50 backdrop-blur-md">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-    <div data-aos="fade-right">
+    <!-- IMAGE LEFT -->
+    <div data-aos="fade-left" class="md:order-1 relative group overflow-hidden rounded-3xl shadow-2xl">
+      <img src="./assets/images/servi6.jpg"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
+    </div>
+
+    <!-- TEXT RIGHT -->
+    <div data-aos="fade-right" class="md:order-2">
       <div class="service-number">04</div>
 
       <h3 class="text-4xl font-semibold text-[#111827] mb-6">
@@ -519,19 +536,15 @@ transition-all duration-300">
       </p>
     </div>
 
-    <div data-aos="fade-left" class="relative group overflow-hidden rounded-3xl shadow-2xl">
-      <img src="./assets/images/servi6.jpg"
-           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
-    </div>
-
   </div>
 </section>
 
-  <!-- SERVICE 5 -->
+<!-- SERVICE 5 -->
 <section class="py-28">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-    <div data-aos="fade-right" class="md:order-2">
+    <!-- TEXT LEFT -->
+    <div data-aos="fade-right">
       <div class="service-number">05</div>
 
       <h3 class="text-4xl font-semibold text-[#111827] mb-6">
@@ -553,7 +566,8 @@ transition-all duration-300">
       </ul>
     </div>
 
-    <div data-aos="fade-left" class="md:order-1 relative group overflow-hidden rounded-3xl shadow-2xl">
+    <!-- IMAGE RIGHT -->
+    <div data-aos="fade-left" class="relative group overflow-hidden rounded-3xl shadow-2xl">
       <img src="./assets/images/servi7.jpg"
            class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
     </div>
@@ -561,13 +575,18 @@ transition-all duration-300">
   </div>
 </section>
 
-
-
 <!-- SERVICE 6 -->
 <section class="py-28 bg-white/50 backdrop-blur-md">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-    <div data-aos="fade-right">
+    <!-- IMAGE LEFT -->
+    <div data-aos="fade-left" class="md:order-1 relative group overflow-hidden rounded-3xl shadow-2xl">
+      <img src="./assets/images/servi8.jpg"
+           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
+    </div>
+
+    <!-- TEXT RIGHT -->
+    <div data-aos="fade-right" class="md:order-2">
       <div class="service-number">06</div>
 
       <h3 class="text-4xl font-semibold text-[#111827] mb-6">
@@ -590,19 +609,14 @@ transition-all duration-300">
       </ul>
     </div>
 
-    <div data-aos="fade-left" class="relative group overflow-hidden rounded-3xl shadow-2xl">
-      <img src="./assets/images/servi8.jpg"
-           class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
-    </div>
-
   </div>
 </section>
-
 <!-- SERVICE 7 -->
 <section class="py-28">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-    <div data-aos="fade-right" class="md:order-2">
+    <!-- TEXT LEFT -->
+    <div data-aos="fade-right">
       <div class="service-number">07</div>
 
       <h3 class="text-4xl font-semibold text-[#111827] mb-6">
@@ -622,7 +636,9 @@ transition-all duration-300">
       </ul>
     </div>
 
-    <div data-aos="fade-left" class="md:order-1 relative group overflow-hidden rounded-3xl shadow-2xl">
+    <!-- IMAGE RIGHT -->
+    <div data-aos="fade-left"
+         class="relative group overflow-hidden rounded-3xl shadow-2xl">
       <img src="./assets/images/servi9.JPG"
            class="w-full h-[480px] object-cover transition duration-700 group-hover:scale-105">
     </div>

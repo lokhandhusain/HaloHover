@@ -9,6 +9,7 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
+  
 .nav-link {
   position: relative;
   transition: all 0.3s ease;
@@ -41,15 +42,6 @@
 .nav-active::after {
   width: 100%;
 }
-
-/* Premium Light Background (Same Feel as Home) */
-body {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(230,57,70,0.06), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(230,57,70,0.05), transparent 40%),
-    linear-gradient(135deg, #F9FAFB 0%, #EEF2F7 100%);
-}
-
 /* Floating Glow */
 .premium-glow {
   position: absolute;
@@ -110,17 +102,30 @@ body {
 
 </style>
 </head>
+<body class="relative overflow-x-hidden text-white">
 
-<body class="relative overflow-x-hidden text-[#1A1F2B]">
+  <!-- FULL PAGE VIDEO BACKGROUND -->
+<div class="fixed inset-0 z-0 overflow-hidden">
+
+  <video autoplay muted loop playsinline class="w-full h-full object-cover">
+    <source src="./assets/images/about-bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- Dark Overlay For Readability -->
+  <div class="absolute inset-0 bg-black/65"></div>
+
+</div>
+
 
 <div class="premium-glow top-20 right-0"></div>
-
+<div class="relative z-10">
 <!-- NAVBAR (same style as home) -->
 <header class="fixed top-0 w-full bg-white/95 backdrop-blur-lg border-b border-[#E5E7EB] z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
     <div class="bg-white px-4 py-2 rounded-xl shadow-md">
-      <img src="./assets/logo/logo.png" class="h-14">
+      <img src="./assets/logo/logo.png" class="h-28">
+
     </div>
 
     <nav class="hidden md:flex gap-10 text-[#1F2937] font-semibold tracking-wide">
@@ -152,30 +157,16 @@ body {
 <!-- HERO WITH VIDEO BACKGROUND -->
 <section class="relative min-h-screen flex items-center overflow-hidden">
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline
-         class="absolute inset-0 w-full h-full object-cover z-0">
-    <source src="./assets/images/about-bg.mp4" type="video/mp4">
-  </video>
-
-  <!-- Soft Light Overlay for Readability -->
-  <div class="absolute inset-0 
-              bg-gradient-to-r 
-              from-white/85 
-              via-white/70 
-              to-white/60 
-              z-10">
-  </div>
 
   <!-- Content -->
   <div class="relative z-20 max-w-7xl mx-auto px-6 py-40">
 
-    <h1 class="text-6xl font-semibold text-[#111827] mb-8"
+    <h1 class="text-6xl font-semibold text-white mb-8"
         data-aos="fade-up">
       About Halo Hover
     </h1>
 
-    <p class="text-lg text-[#374151] max-w-3xl leading-relaxed"
+    <p class="text-lg text-white/90 max-w-3xl leading-relaxed"
        data-aos="fade-up"
        data-aos-delay="150">
 
@@ -195,30 +186,15 @@ body {
 <!-- REGULATORY & PERMIT COORDINATION -->
 <section class="relative py-40 overflow-hidden">
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline
-         class="absolute inset-0 w-full h-full object-cover z-0">
-    <source src="./assets/images/about-bg2.mp4" type="video/mp4">
-  </video>
-
-  <!-- Light Overlay -->
-  <div class="absolute inset-0 
-              bg-gradient-to-r 
-              from-white/95 
-              via-white/85 
-              to-white/75 
-              z-10">
-  </div>
-
   <!-- Content -->
   <div class="relative z-20 max-w-6xl mx-auto px-6">
 
-    <h2 class="text-5xl font-semibold text-[#111827] mb-8"
+    <h2 class="text-5xl font-semibold text-white mb-8"
         data-aos="fade-up">
       Regulatory & Permit Coordination
     </h2>
 
-    <p class="text-lg text-[#374151] leading-relaxed mb-10"
+    <p class="text-lg text-white/90 leading-relaxed mb-10"
        data-aos="fade-up"
        data-aos-delay="100">
       Operating drones within the UAE requires adherence to strict aviation protocols.
@@ -226,7 +202,7 @@ body {
       structured coordination, permit handling and compliance discipline.
     </p>
 
-    <ul class="space-y-4 text-[#374151] text-lg"
+    <ul class="space-y-4 text-white/90 text-lg"
         data-aos="fade-up"
         data-aos-delay="200">
       <li>✔ Pre-flight regulatory review</li>
@@ -246,34 +222,22 @@ body {
 <!-- RESPONSIBLE OPERATIONS -->
 <section class="relative py-40 overflow-hidden">
 
-  <video autoplay muted loop playsinline
-         class="absolute inset-0 w-full h-full object-cover z-0">
-    <source src="./assets/images/about-bg3.mp4" type="video/mp4">
-  </video>
-
-  <div class="absolute inset-0 
-              bg-gradient-to-r 
-              from-white/95 
-              via-white/85 
-              to-white/75 
-              z-10">
-  </div>
 
   <div class="relative z-20 max-w-6xl mx-auto px-6">
 
-    <h2 class="text-5xl font-semibold text-[#111827] mb-8"
+    <h2 class="text-5xl font-semibold text-white mb-8"
         data-aos="fade-up">
       Responsible Operations
     </h2>
 
-    <p class="text-lg text-[#374151] leading-relaxed mb-10"
+    <p class="text-lg text-white/90 leading-relaxed mb-10"
        data-aos="fade-up"
        data-aos-delay="100">
       Drone deployment in urban, industrial and event environments demands structured oversight.
       Halo Hover maintains disciplined operational standards across every assignment.
     </p>
 
-    <ul class="space-y-4 text-[#374151] text-lg"
+    <ul class="space-y-4 text-white/90 text-lg"
         data-aos="fade-up"
         data-aos-delay="200">
       <li>✔ Site-specific planning</li>
@@ -292,34 +256,22 @@ body {
 <!-- STRUCTURED WORKFLOW -->
 <section class="relative py-40 overflow-hidden">
 
-  <video autoplay muted loop playsinline
-         class="absolute inset-0 w-full h-full object-cover z-0">
-    <source src="./assets/images/about-bg4.mp4" type="video/mp4">
-  </video>
-
-  <div class="absolute inset-0 
-              bg-gradient-to-r 
-              from-white/95 
-              via-white/85 
-              to-white/75 
-              z-10">
-  </div>
 
   <div class="relative z-20 max-w-6xl mx-auto px-6">
 
-    <h2 class="text-5xl font-semibold text-[#111827] mb-8"
+    <h2 class="text-5xl font-semibold text-white mb-8"
         data-aos="fade-up">
       Structured Workflow
     </h2>
 
-    <p class="text-lg text-[#374151] leading-relaxed mb-10"
+    <p class="text-lg text-white/90 leading-relaxed mb-10"
        data-aos="fade-up"
        data-aos-delay="100">
       Professional UAV operations require clarity and structured process.
       Our workflow ensures consistency, compliance and delivery discipline.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-6 text-[#374151] text-lg"
+    <div class="grid md:grid-cols-2 gap-6 text-white/90 text-lg"
          data-aos="fade-up"
          data-aos-delay="200">
 
@@ -336,7 +288,7 @@ body {
 </section>
 
 
-<footer class="border-t border-[#E5E7EB] py-10 text-center text-[#6B7280]">
+<footer class="border-t border-[#E5E7EB] py-10 text-center text-white/80">
 © 2026 Halo Hover
 </footer>
 
@@ -347,6 +299,6 @@ body {
     once: true
   });
 </script>
-
+</div>
 </body>
 </html>
