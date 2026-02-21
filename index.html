@@ -96,31 +96,6 @@
 .nav-active::after {
   width: 100%;
 }
-
-/* ===== HERO SLIDESHOW ===== */
-
-.hero-slideshow {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 8s ease;
-  transform: scale(1.05);
-}
-
-.hero-slide.active {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
 /* Dark overlay for readability */
 .hero-overlay {
   position: absolute;
@@ -392,16 +367,11 @@ transition-all duration-500 nav-transparent">
 
 <!-- HERO -->
 <section class="relative min-h-screen flex items-center px-10 overflow-hidden">
-
-  <!-- Background Slideshow -->
-<div class="hero-slideshow">
-  <div class="hero-slide active" style="background-image: url('./assets/images/hub1.JPG');"></div>
-  <div class="hero-slide" style="background-image: url('./assets/images/hub2.JPG');"></div>
-  <div class="hero-slide" style="background-image: url('./assets/images/hub3.JPG');"></div>
-  <div class="hero-slide" style="background-image: url('./assets/images/hub4.JPG');"></div>
-  <div class="hero-slide" style="background-image: url('./assets/images/hub5.JPG');"></div>
-</div>
-
+<!-- Background Video -->
+<video autoplay muted loop playsinline
+       class="absolute inset-0 w-full h-full object-cover z-0">
+  <source src="./assets/images/hero.mp4" type="video/mp4">
+</video>
 <div class="relative z-10 max-w-7xl mx-auto w-full">
   <div class="max-w-2xl">
 
@@ -458,12 +428,12 @@ transition-all duration-500 nav-transparent">
 
       <div class="relative group overflow-hidden rounded-3xl shadow-2xl">
         <img src="./assets/images/serv1.png"
-             class="w-full h-[450px] object-cover transition duration-700 group-hover:scale-105">
+             class="w-full h-auto object-contain" transition duration-700 group-hover:scale-105">
       </div>
 
       <div class="relative group overflow-hidden rounded-3xl shadow-2xl">
         <img src="./assets/images/serv2.png"
-             class="w-full h-[450px] object-cover transition duration-700 group-hover:scale-105">
+             class="w-full h-auto object-contain" transition duration-700 group-hover:scale-105">
       </div>
 
     </div>
@@ -626,7 +596,7 @@ transition-all duration-500 nav-transparent">
            data-aos="fade-up" data-aos-delay="150">
 
         <h3 class="text-xl font-semibold text-[#111827] mb-4">
-          Architecture & Engineering Firms
+          Architecture & Engineering Firms 2026 Halo Hover. All rights reserved.
         </h3>
         <p class="text-[#6B7280]">
           Precision mapping, modeling and visual documentation.
@@ -821,7 +791,7 @@ transition-all duration-500 nav-transparent">
 
 
 <footer class="border-t border-[#303646] py-10 text-center text-[#9CA3AF]">
-© 2026 Halo Hover. All rights reserved.
+© 2026 Halo Hover Aerial Services LLC. All rights reserved.
 </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -829,16 +799,6 @@ transition-all duration-500 nav-transparent">
     duration: 800,
     once: true
   });
-</script>
-<script>
-const slides = document.querySelectorAll('.hero-slide');
-let currentSlide = 0;
-
-setInterval(() => {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add('active');
-}, 5000);
 </script>
 <script>
 const navbar = document.getElementById("navbar");
