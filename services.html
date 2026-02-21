@@ -180,7 +180,31 @@ body::after {
   filter: blur(120px);
   z-index: -1;
 }
+.stack-img {
+  width: 70%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+  position: absolute;
+}
 
+.stack-front {
+  z-index: 30;
+  transform: rotate(0deg) scale(1);
+  filter: blur(0px) brightness(1);
+}
+
+.stack-middle {
+  z-index: 20;
+  transform: rotate(8deg) scale(0.95) translateX(60px);
+  filter: blur(2px) brightness(0.9);
+}
+
+.stack-back {
+  z-index: 10;
+  transform: rotate(-10deg) scale(0.9) translateX(-60px);
+  filter: blur(3px) brightness(0.8);
+}
 
 /* Floating Glow */
 .glow-orb {
@@ -480,23 +504,22 @@ transition-all duration-300">
       </ul>
     </div>
 
-    <!-- SLIDESHOW -->
-    <div class="relative h-[480px] rounded-3xl overflow-hidden shadow-2xl">
+<!-- STACK SLIDESHOW -->
+<div class="relative h-[480px] flex items-center justify-center group">
 
-      <div class="service-slide active">
-        <img src="./assets/images/servi3.png" class="w-full h-full object-cover">
-      </div>
+  <img src="./assets/images/servi3.png"
+       class="stack-img absolute transition-all duration-700"
+       data-index="0">
 
-      <div class="service-slide">
-        <img src="./assets/images/servi4.png" class="w-full h-full object-cover">
-      </div>
+  <img src="./assets/images/servi4.png"
+       class="stack-img absolute transition-all duration-700"
+       data-index="1">
 
-      <div class="service-slide">
-        <img src="./assets/images/servi5.png" class="w-full h-full object-cover">
-      </div>
+  <img src="./assets/images/servi5.png"
+       class="stack-img absolute transition-all duration-700"
+       data-index="2">
 
-    </div>
-
+</div>
   </div>
 </section>
 
@@ -668,6 +691,33 @@ setInterval(() => {
   currentServiceSlide = (currentServiceSlide + 1) % serviceSlides.length;
   serviceSlides[currentServiceSlide].classList.add('active');
 }, 4000);
+</script>
+<script>
+const stackImages = document.querySelectorAll(".stack-img");
+
+let currentFront = 0;
+
+function updateStack() {
+  stackImages.forEach((img, index) => {
+    img.classList.remove("stack-front", "stack-middle", "stack-back");
+
+    if (index === currentFront) {
+      img.classList.add("stack-front");
+    } else if (index === (currentFront + 1) % stackImages.length) {
+      img.classList.add("stack-middle");
+    } else {
+      img.classList.add("stack-back");
+    }
+  });
+
+  currentFront = (currentFront + 1) % stackImages.length;
+}
+
+// initial state
+updateStack();
+
+// rotate every 4 seconds
+setInterval(updateStack, 4000);
 </script>
 
 </body>
